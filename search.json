@@ -25,7 +25,7 @@
     "href": "an3/index.html#activité-du-mardi-4-novembre-2025",
     "title": "Analyse 3",
     "section": "",
-    "text": "Les zones de code ci-dessous peuvent être modifiées et relancées à l’aide du bouton “Run code” ou au clavier avec “Ctrl+Enter”.\nVous serez amené·e à faire quelques calculs. Ces passages sont en italique.\nIl faut lancer les cases de codes dans l’ordre, car certaines font appel aux cases précédentes.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(x(t) = 2t - \\frac{\\pi}{2}\\) pour \\(0\\leq x\\leq \\pi/2\\)\n\\(x(t)\\) est pair\n\\(x(t)\\) est \\(\\pi\\)-périodique",
+    "text": "Les zones de code ci-dessous peuvent être modifiées et relancées à l’aide du bouton “Run code” ou au clavier avec “Ctrl+Enter”.\nVous serez amené·e à faire quelques calculs. Ces passages sont en italique.\nIl faut lancer les cases de codes dans l’ordre, car certaines font appel aux cases précédentes.\n\n\n\n\n\nChariot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(x(t) = 2t - \\frac{\\pi}{2}\\) pour \\(0\\leq x\\leq \\pi/2\\)\n\\(x(t)\\) est pair\n\\(x(t)\\) est \\(\\pi\\)-périodique",
     "crumbs": [
       "Analyse 3",
       "Analyse 3"

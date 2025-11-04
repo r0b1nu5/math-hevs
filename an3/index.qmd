@@ -2,16 +2,45 @@
 
 ## Activité du mardi 4 novembre 2025 - Série de Fourier et équation différentielle
 
-Premier test
+[Second test](an3/251104/index.qmd)
+
+Dans l'exercice 3 de la série 21 du cours de Mathématiques Appliquées 1, nous avons considéré le système suivant, où la constante du ressort est de $k = 4 [\mathrm{kg/s}^2]$, la masse du chariot est de $m = 1 [\mathrm{kg}]$, et la constante de l'amortisseur est de $c = 5 [\mathrm{kg/s}]$.
+
+On en déduit l'équation différentielle
+$$
+ y'' + 5y' + 4y = 5x'
+$$
+
+Pour rappel, la réponse fréquentielle du système ci-dessus est donnée par
+$$
+ H(\omega) = \frac{i5\omega}{4-\omega^2 + i5\omega}
+$$
+(Chaque dérivée est remplacée par un multiplication par $i\omega$ et on a le membre de droite au numérateur et le membre de gauche au dénominateur.)
+
+Pour commencer, représentons le module et l'argument de $H(\omega)$ en fonction de la vitesse angulaire $\omega$:
 
 ```{pyodide}
 import numpy as np
+import matplotlib.pyplot as plt
+j = complex(0,1)
 
-t = np.linspace(0,10,200)
-
-print(t)
+w = np.linspace(0,100,500)
+H = (j*5*w)/(4 - w**2 + j*5*w)
 ```
 
+```{pyodide}
+fig1 = plt.plot(w,abs(H))
+fig1.show()
+```
+
+```{pyodide}
+phi = []
+for i in np.arange(len(w)):
+	phi.append(cmath.phase(H[i]))
+
+fig2 = plt.plot(w,phi)
+fig2.show()
+```
 
 
 

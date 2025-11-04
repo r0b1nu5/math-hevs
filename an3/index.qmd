@@ -2,8 +2,6 @@
 
 ## Activité du mardi 4 novembre 2025 - Série de Fourier et équation différentielle
 
-[Second test](an3/251104/index.qmd)
-
 Dans l'exercice 3 de la série 21 du cours de Mathématiques Appliquées 1, nous avons considéré le système suivant, où la constante du ressort est de $k = 4 [\mathrm{kg/s}^2]$, la masse du chariot est de $m = 1 [\mathrm{kg}]$, et la constante de l'amortisseur est de $c = 5 [\mathrm{kg/s}]$.
 
 On en déduit l'équation différentielle
@@ -30,17 +28,18 @@ H = (j*5*w)/(4 - w**2 + j*5*w)
 ```
 
 ```{pyodide}
-fig1 = plt.plot(w,abs(H))
-fig1.show()
-```
+plt.figure()
+plt.subplot(1,2,1)
+plt.plot(w,abs(H))
 
-```{pyodide}
 phi = []
 for i in np.arange(len(w)):
 	phi.append(cmath.phase(H[i]))
 
-fig2 = plt.plot(w,phi)
-fig2.show()
+plt.subplot(1,2,2)
+plt.plot(w,phi)
+
+plt.show()
 ```
 
 

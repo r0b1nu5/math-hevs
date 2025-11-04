@@ -1,7 +1,7 @@
-# Mathématiques HEI
+# Mathématiques HEI {.unnumbered}
 
-Cette page regroupe quelques documents additionnel pour les cours de mathématiques donnés à la Haute Ecole d'Inénierie de Sion.
+Cette page regroupe quelques documents additionnel pour les cours de mathématiques donnés à la Haute Ecole d'Ingénierie de Sion.
 
-- [Analyse 3](an3/index.qmd)
+- [Analyse 3](https://github.com/r0b1nu5/math-hevs/an3)
 
 

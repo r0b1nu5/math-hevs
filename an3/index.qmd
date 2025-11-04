@@ -1,9 +1,9 @@
-# Analyse 3
+# Analyse 3 {.unnumbered}
 
 ## 2025
 
 ### Classe SE3fb
-- [Activité du mardi 4 novembre 2025](251104/index.qmd)
+- [Activité du mardi 4 novembre 2025](https://github.com/r0b1nu5/math-hevs/an3/251104)
 
 
 

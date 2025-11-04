@@ -1,4 +1,4 @@
-# Série de Fourier et équation différentielle
+# Série de Fourier et équation différentielle {.unnumbered}
 
 ```{pyodide}
 import numpy as np

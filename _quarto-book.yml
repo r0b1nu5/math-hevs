@@ -7,19 +7,11 @@ number-depth: 1
 
 book:
   reader-mode: false
-  title: "Coursetitle"
+  title: "Mathématiques HEI"
   chapters:
-    - index.qmd
-    - part: "First Part"
-      chapters: 
-       - Week1/index.qmd
-    - part: "Second Part"
-      chapters: 
-       - Week2/index.qmd
-    - part: "Third Part"
-    - part: "Fourth Part"
-    - part: "Fifth Part"
-
+    - part: "Analyse 3"
+      chapters:
+        - an3/index.qmd
 format:
   live-html:
     theme: cosmo

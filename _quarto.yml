@@ -7,3 +7,6 @@ date: last-modified
 date-format: long
   
 bibliography: references.bib
+
+project:
+  type: website

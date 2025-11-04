@@ -3,3 +3,5 @@ _book
 _slides
 
 /.quarto/
+
+**/*.quarto_ipynb

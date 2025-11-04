@@ -1,8 +1,17 @@
 # Analyse 3 {.unnumbered}
 
-## Activite du mardi 4 novembre 2025 - Serie de Fourier et equation differentielle
+## Activité du mardi 4 novembre 2025 - Série de Fourier et équation différentielle
 
 Premier test
+
+```{pyodide}
+import numpy as np
+
+t = np.linspace(0,10,200)
+
+print(t)
+```
+
 
 
 

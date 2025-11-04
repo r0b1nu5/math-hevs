@@ -9,6 +9,7 @@ book:
   reader-mode: false
   title: "Mathématiques HEI"
   chapters:
+    - index.qmd
     - part: "Analyse 3"
       chapters:
         - an3/index.qmd

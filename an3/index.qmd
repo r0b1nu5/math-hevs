@@ -9,6 +9,8 @@
 
 Dans l'exercice 3 de la série 21 du cours de Mathématiques Appliquées 1, nous avons considéré le système suivant, où la constante du ressort est de $k = 4 [\mathrm{kg/s}^2]$, la masse du chariot est de $m = 1 [\mathrm{kg}]$, et la constante de l'amortisseur est de $c = 5 [\mathrm{kg/s}]$.
 
+![Chariot](img/chariot.png)
+
 On en déduit l'équation différentielle
 $$
  y'' + 5y' + 4y = 5x'

@@ -22,6 +22,7 @@ Pour commencer, représentons le module et l'argument de $H(\omega)$ en fonction
 ```{pyodide}
 import numpy as np
 import matplotlib.pyplot as plt
+import cmath
 j = complex(0,1)
 
 w = np.linspace(0,100,500)

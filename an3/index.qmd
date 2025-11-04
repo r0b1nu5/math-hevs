@@ -1,6 +1,9 @@
 # Analyse 3 {.unnumbered}
 
 ## Activité du mardi 4 novembre 2025 - Série de Fourier et équation différentielle
+**Consigne :** 
+- Les zones de code ci-dessous peuvent être modifiées et relancées à l'aide du bouton "Run code". Vous serez amené·e à modifier le code.
+- Vous serez amené·e à faire quelques calculs. Ces passages sont en italique.
 
 Dans l'exercice 3 de la série 21 du cours de Mathématiques Appliquées 1, nous avons considéré le système suivant, où la constante du ressort est de $k = 4 [\mathrm{kg/s}^2]$, la masse du chariot est de $m = 1 [\mathrm{kg}]$, et la constante de l'amortisseur est de $c = 5 [\mathrm{kg/s}]$.
 
@@ -28,7 +31,7 @@ H = (j*5*w)/(4 - w**2 + j*5*w)
 ```
 
 ```{pyodide}
-plt.figure()
+plt.figure((3,5))
 plt.subplot(1,2,1)
 plt.plot(w,abs(H))
 
@@ -42,6 +45,94 @@ plt.plot(w,phi)
 plt.show()
 ```
 
+---
 
+Pour le moment, nous n'avons pas spécifié la forme du signal d'entrée $x(t)$.
+Pour rappel, ce signal d'entrée donne la position du point point d'attache mobile, à droite du chariot dans le système considéré ici.
+
+Dans ce premier exemple, nous allons prendre le signal d'entrée
+$$
+ x(t) = \sin(3t)
+$$
+
+```{pyodide}
+t = np.linspace(0,10,500)
+x = np.sin(3*t)
+
+plt.figure()
+plt.plot(t,x)
+plt.xlabel('t')
+plt.ylabel('x')
+plt.show()
+```
+
+Afin de calculer le signal de sortie $y(t)$ (donc la position du chariot), nous allons utiliser la réponse fréquentielle $H(\omega)$. 
+Pour cela nous avons besoin de la série de Fourier complexe de $x(t)$, 
+$$
+ x(t) = \sin(3t) = -\frac{1}{2i}e^{-i3t} + \frac{1}{2i}e^{i3t}
+$$
+
+Comme nous l'avons vu, on trouve le signal de sortie en appliquant la réponse fréquentielle à chaque harmonique de la série de Fourier, avec la fréquence associée. 
+Ainsi, pour le terme $e^{-i3t}$, nous devons calculer $H(-3)$, et pour le terme $e^{i3t}$, nous devons calculer $H(3)$. 
+
+*Vérifiez que* 
+$$
+ H(-3) = \frac{9+3i}{10} \\
+ H(3) = \frac{9-3i}{10}
+$$
+
+Ainsi, la série de Fourier complexe du signal de sortie est 
+$$
+ y(t) = -\frac{1}{2i}\cdot\frac{9+3i}{10}e^{-i3t} + \frac{1}{2i}\cdot\frac{9-3i}{10}e^{i3t} \\
+ = \frac{-3+9i}{20}e^{-i3t} + \frac{-3-9i}e^{i3t}
+$$
+
+Sans avoir besoin de simplifier cette expression, on peut se faire une idée de la trajectoire du chariot en la calculant numériquement :
+
+```{pyodide}
+w0 = 3
+y = complex(-3/20,9/20)*np.exp(-j*3*t) + complex(-3/20,-9/20)*np.exp(j*3*t)
+
+plt.figure()
+plt.subplot(2,1,1)
+plt.plot(t,x)
+plt.ylabel('x')
+plt.axis([0,10,-1.1,1.1])
+plt.subplot(2,1,2)
+plt.plot(t,y.real,color='C1')
+plt.xlabel('t')
+plt.ylabel('y')
+plt.axis([0,10,-1.1,1.1])
+plt.show()
+```
+
+---
+
+Dans le code ci-dessous, en modifiant la vitesse angulaire du signal d'entrée (`w` à la première ligne), vous pouvez voir directement l'effet sur le signal de sortie $y(t)$ dans la figure. 
+*Qu'observez-vous lorsque la vitesse angulaire devient très basse (mais non-nulle) ? Et lorsqu'elle est très élevée ?*
+
+```{pyodide}
+w = 3 	# Vitesse angulaire à modifier
+
+t = np.linspace(0,10,500)
+x = np.sin(w*t)
+
+H1 = (-j*5*w)/(4-w**2 - j*5*w)
+H2 = (j*5*w)/(4-w**2 + j*5*w)
+
+y = (-1/(2*j))*H1*np.exp(-j*w*t) + (1/(2*j))*H2*np.exp(j*w*t)
+
+plt.figure()
+plt.subplot(2,1,1)
+plt.plot(t,x)
+plt.ylabel('x')
+plt.axis([0,10,-1.1,1.1])
+plt.subplot(2,1,2)
+plt.plot(t,y.real,color='C1')
+plt.xlabel('t')
+plt.ylabel('y')
+plt.axis([0,10,-1.1,1.1])
+plt.show()
+```
 
 

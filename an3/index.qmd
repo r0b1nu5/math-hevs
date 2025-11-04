@@ -1,9 +1,16 @@
 # Analyse 3 {.unnumbered}
 
-## 2025
+## Activité du mardi 4 novembre 2025 - Série de Fourier et équation différentielle
 
-### Classe SE3fb
-- [Activité du mardi 4 novembre 2025](https://github.com/r0b1nu5/math-hevs/an3/251104)
+Premier test
+
+```{pyodide}
+import numpy as np
+
+t = np.linspace(0,10,200)
+
+print(t)
+```
 
 
 

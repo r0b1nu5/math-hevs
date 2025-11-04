@@ -1,0 +1,12 @@
+# Série de Fourier et équation différentielle
+
+```{pyodide}
+import numpy as np
+
+t = np.linspace(0,10,200)
+
+print(t)
+```
+
+
+

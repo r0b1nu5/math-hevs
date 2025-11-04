@@ -184,6 +184,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#activité-du-mardi-4-novembre-2025---série-de-fourier-et-équation-différentielle" id="toc-activité-du-mardi-4-novembre-2025---série-de-fourier-et-équation-différentielle" class="nav-link active" data-scroll-target="#activité-du-mardi-4-novembre-2025---série-de-fourier-et-équation-différentielle">Activité du mardi 4 novembre 2025 - Série de Fourier et équation différentielle</a></li>
+  <li><a href="#dans-le-code-ci-dessous-en-modifiant-la-vitesse-angulaire-du-signal-dentrée-w-à-la-première-ligne-vous-pouvez-voir-directement-leffet-sur-le-signal-de-sortie-yt-dans-la-figure." id="toc-dans-le-code-ci-dessous-en-modifiant-la-vitesse-angulaire-du-signal-dentrée-w-à-la-première-ligne-vous-pouvez-voir-directement-leffet-sur-le-signal-de-sortie-yt-dans-la-figure." class="nav-link" data-scroll-target="#dans-le-code-ci-dessous-en-modifiant-la-vitesse-angulaire-du-signal-dentrée-w-à-la-première-ligne-vous-pouvez-voir-directement-leffet-sur-le-signal-de-sortie-yt-dans-la-figure.">Dans le code ci-dessous, en modifiant la vitesse angulaire du signal d’entrée (<code>w</code> à la première ligne), vous pouvez voir directement l’effet sur le signal de sortie <span class="math inline">\(y(t)\)</span> dans la figure.</a></li>
   </ul>
 </nav>
     </div>
@@ -223,7 +224,12 @@ window.Quarto = {
 
 <section id="activité-du-mardi-4-novembre-2025---série-de-fourier-et-équation-différentielle" class="level2">
 <h2 class="anchored" data-anchor-id="activité-du-mardi-4-novembre-2025---série-de-fourier-et-équation-différentielle">Activité du mardi 4 novembre 2025 - Série de Fourier et équation différentielle</h2>
-<p><strong>Consigne :</strong> - Les zones de code ci-dessous peuvent être modifiées et relancées à l’aide du bouton “Run code”. Vous serez amené·e à modifier le code. - Vous serez amené·e à faire quelques calculs. Ces passages sont en italique.</p>
+<p><strong>Consigne :</strong></p>
+<ul>
+<li>Les zones de code ci-dessous peuvent être modifiées et relancées à l’aide du bouton “Run code”. Vous serez amené·e à modifier le code.</li>
+<li>Vous serez amené·e à faire quelques calculs. Ces passages sont en italique.</li>
+<li>Il faut lancer les cases de codes dans l’ordre, car certaines font appel aux cases précédentes.</li>
+</ul>
 <p>Dans l’exercice 3 de la série 21 du cours de Mathématiques Appliquées 1, nous avons considéré le système suivant, où la constante du ressort est de <span class="math inline">\(k = 4 [\mathrm{kg/s}^2]\)</span>, la masse du chariot est de <span class="math inline">\(m = 1 [\mathrm{kg}]\)</span>, et la constante de l’amortisseur est de <span class="math inline">\(c = 5 [\mathrm{kg/s}]\)</span>.</p>
 <p>On en déduit l’équation différentielle <span class="math display">\[
 y'' + 5y' + 4y = 5x'
@@ -237,15 +243,7 @@ H(\omega) = \frac{i5\omega}{4-\omega^2 + i5\omega}
 
 </div>
 <script type="pyodide-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IG51bXB5IGFzIG5wXG5pbXBvcnQgbWF0cGxvdGxpYi5weXBsb3QgYXMgcGx0XG5pbXBvcnQgY21hdGhcbmogPSBjb21wbGV4KDAsMSlcblxudyA9IG5wLmxpbnNwYWNlKDAsMTAwLDUwMClcbkggPSAoaio1KncpLyg0IC0gdyoqMiArIGoqNSp3KSJ9
-</script>
-</div>
-<div>
-<div id="pyodide-2" class="exercise-cell">
-
-</div>
-<script type="pyodide-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicGx0LmZpZ3VyZSgoMyw1KSlcbnBsdC5zdWJwbG90KDEsMiwxKVxucGx0LnBsb3QodyxhYnMoSCkpXG5cbnBoaSA9IFtdXG5mb3IgaSBpbiBucC5hcmFuZ2UobGVuKHcpKTpcbiAgICBwaGkuYXBwZW5kKGNtYXRoLnBoYXNlKEhbaV0pKVxuXG5wbHQuc3VicGxvdCgxLDIsMilcbnBsdC5wbG90KHcscGhpKVxuXG5wbHQuc2hvdygpIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBPbiBjaGFyZ2UgbGVzIGxpYnJhaXJpZXMgbsOpY2Vzc2FpcmVzLlxuaW1wb3J0IG51bXB5IGFzIG5wXG5pbXBvcnQgbWF0cGxvdGxpYi5weXBsb3QgYXMgcGx0XG5pbXBvcnQgY21hdGhcbmogPSBjb21wbGV4KDAsMSkgIyBPbiBkw6lmaW5pdCBsJ3VuaXTDqSBpbWFnaW5haXJlIGNvbW1lICdqJy5cblxuIyBPbiBjYWxjdWxlIGxlIHLDqXBvbnNlIGZyw6lxdWVudGllbGxlIHBvdXIgZGVzIHZpdGVzc2VzIGFuZ3VsYWlyZXMgYWxsYW50IGRlIDAgw6AgMTAwIFtyYWQvc10uXG53ID0gbnAubGluc3BhY2UoMCwxMDAsNTAwKVxuSCA9IChqKjUqdykvKDQgLSB3KioyICsgaio1KncpXG5cbiMgT24gYWZmaWNoZSBsZXMgZ3JhcGhlcyBkZSB8SHwgZXQgZGUgYXJnKEgpLlxucGx0LmZpZ3VyZSgoMyw1KSlcbnBsdC5zdWJwbG90KDEsMiwxKVxucGx0LnBsb3QodyxhYnMoSCkpXG5cbiMgQ2FsY3VsIGRlIGwnYXJndW1lbnQgZGUgbGEgcsOpcG9uc2UgZnLDqXF1ZXRpZWxsZS5cbnBoaSA9IFtdXG5mb3IgaSBpbiBucC5hcmFuZ2UobGVuKHcpKTpcbiAgICBwaGkuYXBwZW5kKGNtYXRoLnBoYXNlKEhbaV0pKVxuXG5wbHQuc3VicGxvdCgxLDIsMilcbnBsdC5wbG90KHcscGhpKVxuXG5wbHQuc2hvdygpIn0=
 </script>
 </div>
 <hr>
@@ -254,10 +252,10 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicGx0LmZpZ3VyZSgoMyw1KSlc
 x(t) = \sin(3t)
 \]</span></p>
 <div>
-<div id="pyodide-3" class="exercise-cell">
+<div id="pyodide-2" class="exercise-cell">
 
 </div>
-<script type="pyodide-3-contents">
+<script type="pyodide-2-contents">
 eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidCA9IG5wLmxpbnNwYWNlKDAsMTAsNTAwKVxueCA9IG5wLnNpbigzKnQpXG5cbnBsdC5maWd1cmUoKVxucGx0LnBsb3QodCx4KVxucGx0LnhsYWJlbCgndCcpXG5wbHQueWxhYmVsKCd4JylcbnBsdC5zaG93KCkifQ==
 </script>
 </div>
@@ -265,31 +263,66 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidCA9IG5wLmxpbnNwYWNlKDAs
 x(t) = \sin(3t) = -\frac{1}{2i}e^{-i3t} + \frac{1}{2i}e^{i3t}
 \]</span></p>
 <p>Comme nous l’avons vu, on trouve le signal de sortie en appliquant la réponse fréquentielle à chaque harmonique de la série de Fourier, avec la fréquence associée. Ainsi, pour le terme <span class="math inline">\(e^{-i3t}\)</span>, nous devons calculer <span class="math inline">\(H(-3)\)</span>, et pour le terme <span class="math inline">\(e^{i3t}\)</span>, nous devons calculer <span class="math inline">\(H(3)\)</span>.</p>
+<hr>
 <p><em>Vérifiez que</em> <span class="math display">\[
 H(-3) = \frac{9+3i}{10} \\
 H(3) = \frac{9-3i}{10}
 \]</span></p>
+<hr>
 <p>Ainsi, la série de Fourier complexe du signal de sortie est <span class="math display">\[
 y(t) = -\frac{1}{2i}\cdot\frac{9+3i}{10}e^{-i3t} + \frac{1}{2i}\cdot\frac{9-3i}{10}e^{i3t} \\
 = \frac{-3+9i}{20}e^{-i3t} + \frac{-3-9i}e^{i3t}
 \]</span></p>
 <p>Sans avoir besoin de simplifier cette expression, on peut se faire une idée de la trajectoire du chariot en la calculant numériquement :</p>
 <div>
+<div id="pyodide-3" class="exercise-cell">
+
+</div>
+<script type="pyodide-3-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoieSA9IGNvbXBsZXgoLTMvMjAsOS8yMCkqbnAuZXhwKC1qKjMqdCkgKyBjb21wbGV4KC0zLzIwLC05LzIwKSpucC5leHAoaiozKnQpXG5cbnBsdC5maWd1cmUoKVxucGx0LnN1YnBsb3QoMiwxLDEpXG5wbHQucGxvdCh0LHgpXG5wbHQueWxhYmVsKCd4JylcbnBsdC5heGlzKFswLDEwLC0xLjEsMS4xXSlcbnBsdC5zdWJwbG90KDIsMSwyKVxucGx0LnBsb3QodCx5LnJlYWwsY29sb3I9J0MxJylcbnBsdC54bGFiZWwoJ3QnKVxucGx0LnlsYWJlbCgneScpXG5wbHQuYXhpcyhbMCwxMCwtMS4xLDEuMV0pXG5wbHQuc2hvdygpIn0=
+</script>
+</div>
+<hr>
+</section>
+<section id="dans-le-code-ci-dessous-en-modifiant-la-vitesse-angulaire-du-signal-dentrée-w-à-la-première-ligne-vous-pouvez-voir-directement-leffet-sur-le-signal-de-sortie-yt-dans-la-figure." class="level2">
+<h2 class="anchored" data-anchor-id="dans-le-code-ci-dessous-en-modifiant-la-vitesse-angulaire-du-signal-dentrée-w-à-la-première-ligne-vous-pouvez-voir-directement-leffet-sur-le-signal-de-sortie-yt-dans-la-figure.">Dans le code ci-dessous, en modifiant la vitesse angulaire du signal d’entrée (<code>w</code> à la première ligne), vous pouvez voir directement l’effet sur le signal de sortie <span class="math inline">\(y(t)\)</span> dans la figure.</h2>
+<p><em>Qu’observez-vous lorsque la vitesse angulaire devient très basse (mais non-nulle) ? Et lorsqu’elle est très élevée ?</em></p>
+<div>
 <div id="pyodide-4" class="exercise-cell">
 
 </div>
 <script type="pyodide-4-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidzAgPSAzXG55ID0gY29tcGxleCgtMy8yMCw5LzIwKSpucC5leHAoLWoqMyp0KSArIGNvbXBsZXgoLTMvMjAsLTkvMjApKm5wLmV4cChqKjMqdClcblxucGx0LmZpZ3VyZSgpXG5wbHQuc3VicGxvdCgyLDEsMSlcbnBsdC5wbG90KHQseClcbnBsdC55bGFiZWwoJ3gnKVxucGx0LmF4aXMoWzAsMTAsLTEuMSwxLjFdKVxucGx0LnN1YnBsb3QoMiwxLDIpXG5wbHQucGxvdCh0LHkucmVhbCxjb2xvcj0nQzEnKVxucGx0LnhsYWJlbCgndCcpXG5wbHQueWxhYmVsKCd5JylcbnBsdC5heGlzKFswLDEwLC0xLjEsMS4xXSlcbnBsdC5zaG93KCkifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidyA9IDMgICAjIFZpdGVzc2UgYW5ndWxhaXJlIMOgIG1vZGlmaWVyXG5cbiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcblxudG1heCA9IG5wLm1heChbMTAsMzAvd10pXG50ID0gbnAubGluc3BhY2UoMCx0bWF4LDUwMClcbnggPSBucC5zaW4odyp0KVxuXG4jIENhbGN1bCBkZSBsYSByw6lwb25zZSBmcsOpcXVlbnRpZWxsZSBwb3VyIC13IGV0ICt3XG5IMSA9ICgtaio1KncpLyg0LXcqKjIgLSBqKjUqdylcbkgyID0gKGoqNSp3KS8oNC13KioyICsgaio1KncpXG5cbiMgQ2FsY3VsIGR1IHNpZ25hbCBkZSBzb3J0aWVcbnkgPSAoLTEvKDIqaikpKkgxKm5wLmV4cCgtaip3KnQpICsgKDEvKDIqaikpKkgyKm5wLmV4cChqKncqdClcblxuIyBBZmZpY2hhZ2VcbnBsdC5maWd1cmUoKVxucGx0LnN1YnBsb3QoMiwxLDEpXG5wbHQucGxvdCh0LHgpXG5wbHQueWxhYmVsKCd4JylcbnBsdC5heGlzKFswLHRtYXgsLTEuMSwxLjFdKVxucGx0LnN1YnBsb3QoMiwxLDIpXG5wbHQucGxvdCh0LHkucmVhbCxjb2xvcj0nQzEnKVxucGx0LnhsYWJlbCgndCcpXG5wbHQueWxhYmVsKCd5JylcbnBsdC5heGlzKFswLHRtYXgsLTEuMSwxLjFdKVxucGx0LnNob3coKSJ9
 </script>
 </div>
 <hr>
-<p>Dans le code ci-dessous, en modifiant la vitesse angulaire du signal d’entrée (<code>w</code> à la première ligne), vous pouvez voir directement l’effet sur le signal de sortie <span class="math inline">\(y(t)\)</span> dans la figure. <em>Qu’observez-vous lorsque la vitesse angulaire devient très basse (mais non-nulle) ? Et lorsqu’elle est très élevée ?</em></p>
+<hr>
+<p>Considérons maintenant un signal d’entrée <span class="math inline">\(x(t)\)</span> (donc l’excitation du chariot) tel que :</p>
+<ul>
+<li><span class="math inline">\(x(t) = 2t - \frac{\pi}{2}\)</span> pour <span class="math inline">\(0\leq x\leq \pi/2\)</span></li>
+<li><span class="math inline">\(x(t)\)</span> est pair</li>
+<li><span class="math inline">\(x(t)\)</span> est <span class="math inline">\(\pi\)</span>-périodique</li>
+</ul>
+<hr>
+<p><em>Vérifiez que les coefficients de Fourier complexes sont données par</em> <span class="math display">\[
+c_k = \left\{\begin{array}{ll}
+  -\frac{2}{\pi k} &amp; k \text{ impair} \\
+  0 &amp; k \text{ pair}
+\end{array}\right.
+\]</span></p>
+<hr>
+<p>Ainsi <span class="math display">\[
+x(t) = ... -\frac{2}{9\pi}e^{-i3t} - \frac{2}{\pi}e^{-it} - \frac{2}{\pi}e^{it} - \frac{2}{9\pi}e^{i3t} - ...
+\]</span> et on peut calculer la série de Fourier du signal de sortie (donc de la position du chariot) en appliquant la réponse fréquentielle à chaque harmonique <span class="math display">\[
+y(t) = ... -frac{2}{9\pi}H(-3)e^{-i3t} - \frac{2}{\pi}H(-1)e^{-it} - \frac{2}{\pi}H(1)e^{it} - \frac{2}{9\pi}H(3)e^{i3t} - ...
+\]</span></p>
+<p>Dans le code ci-dessous, on représente le résultat des 9 premières harmoniques de <span class="math inline">\(x(t)\)</span> et <span class="math inline">\(y(t)\)</span>.</p>
 <div>
 <div id="pyodide-5" class="exercise-cell">
 
 </div>
 <script type="pyodide-5-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidyA9IDMgICAjIFZpdGVzc2UgYW5ndWxhaXJlIMOgIG1vZGlmaWVyXG5cbnQgPSBucC5saW5zcGFjZSgwLDEwLDUwMClcbnggPSBucC5zaW4odyp0KVxuXG5IMSA9ICgtaio1KncpLyg0LXcqKjIgLSBqKjUqdylcbkgyID0gKGoqNSp3KS8oNC13KioyICsgaio1KncpXG5cbnkgPSAoLTEvKDIqaikpKkgxKm5wLmV4cCgtaip3KnQpICsgKDEvKDIqaikpKkgyKm5wLmV4cChqKncqdClcblxucGx0LmZpZ3VyZSgpXG5wbHQuc3VicGxvdCgyLDEsMSlcbnBsdC5wbG90KHQseClcbnBsdC55bGFiZWwoJ3gnKVxucGx0LmF4aXMoWzAsMTAsLTEuMSwxLjFdKVxucGx0LnN1YnBsb3QoMiwxLDIpXG5wbHQucGxvdCh0LHkucmVhbCxjb2xvcj0nQzEnKVxucGx0LnhsYWJlbCgndCcpXG5wbHQueWxhYmVsKCd5JylcbnBsdC5heGlzKFswLDEwLC0xLjEsMS4xXSlcbnBsdC5zaG93KCkifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBHcmFuZGV1cnMgw6AgbW9kaWZpZXJcbm0gPSAxICMgbWFzc2UgZHUgY2hhcmlvdFxuYyA9IDUgIyBjb25zdGFudGUgZGUgbCdhbW9ydGlzc2V1clxuayA9IDQgIyBjb25zdGFudGUgZHUgcmVzc29ydFxuIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG5cbmRlZiBIKHcpXG4gICAgcmV0dXJuIChjKmoqdykvKGsgLSB3KioyICsgYypqKncpXG5cbnRtaW4gPSAtMTBcbnRtYXggPSAyMFxudCA9IG5wLmxpbnNwYWNlKHRtaW4sdG1heCw1MDApXG5cbiMgQ2FsY3VsIGRlIGNoYXF1ZSBoYXJtb25pcXVlIGRlIHgodClcbngxID0gLTIvKG5wLnBpKjEqKjIpKihucC5leHAoLWoqMSp0KSArIG5wLmV4cChqKjEqdCkpXG54MyA9IC0yLyhucC5waSozKioyKSoobnAuZXhwKC1qKjMqdCkgKyBucC5leHAoaiozKnQpKVxueDUgPSAtMi8obnAucGkqNSoqMikqKG5wLmV4cCgtaio1KnQpICsgbnAuZXhwKGoqNSp0KSlcbng3ID0gLTIvKG5wLnBpKjcqKjIpKihucC5leHAoLWoqNyp0KSArIG5wLmV4cChqKjcqdCkpXG54OSA9IC0yLyhucC5waSo5KioyKSoobnAuZXhwKC1qKjkqdCkgKyBucC5leHAoaio5KnQpKVxueCA9IHgxICsgeDMgKyB4NSArIHg3ICsgeDlcblxuIyBDYWxjdWwgZGVzIGhhcm1vbmlxdWVzIHBvdXIgeSh0KVxueTEgPSAtMi8obnAucGkqMSoqMikqKEgoLTEpKm5wLmV4cCgtaioxKnQpICsgSCgxKSpucC5leHAoaioxKnQpKVxueTMgPSAtMi8obnAucGkqMyoqMikqKEgoLTMpKm5wLmV4cCgtaiozKnQpICsgSCgzKSpucC5leHAoaiozKnQpKVxueTUgPSAtMi8obnAucGkqNSoqMikqKEgoLTUpKm5wLmV4cCgtaio1KnQpICsgSCg1KSpucC5leHAoaio1KnQpKVxueTcgPSAtMi8obnAucGkqNyoqMikqKEgoLTcpKm5wLmV4cCgtaio3KnQpICsgSCg3KSpucC5leHAoaio3KnQpKVxueTkgPSAtMi8obnAucGkqOSoqMikqKEgoLTkpKm5wLmV4cCgtaio5KnQpICsgSCg5KSpucC5leHAoaio5KnQpKVxueSA9IHkxICsgeTMgKyB5NSArIHk3ICsgeTlcblxuIyBBZmZpY2hhZ2VcbnBsdC5maWd1cmUoKVxucGx0LnN1YnBsb3QoMiwxLDEpXG5wbHQucGxvdCh0LHgpXG5wbHQuYXhpcyhbdG1pbix0bWF4LC0yLDJdKVxucGx0LnlsYWJlbCgneCcpXG5wbHQuc3VicGxvdCgyLDEsMilcbnBsdC5wbG90KHQseSxjb2xvcj0nQzEnKVxucGx0LnhsYWJlbCgndCcpXG5wbHQueWxhYmVsKCd5JylcbnBsdC5heGlzKFt0bWluLHRtYXgsLTIsMl0pXG5wbHQuc2hvdygpIn0=
 </script>
 </div>
 

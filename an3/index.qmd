@@ -34,7 +34,7 @@ w = np.linspace(0,100,500)
 H = (j*5*w)/(4 - w**2 + j*5*w)
 
 # On affiche les graphes de |H| et de arg(H).
-plt.figure('fig1',(6,3))
+plt.figure('fig1',(8,4))
 plt.subplot(1,2,1)
 plt.plot(w,abs(H))
 plt.xlabel('w')
@@ -109,13 +109,10 @@ y = complex(-3/20,9/20)*np.exp(-j*3*t) + complex(-3/20,-9/20)*np.exp(j*3*t)
 plt.figure()
 plt.subplot(2,1,1)
 plt.plot(t,x)
-plt.ylabel('x')
-plt.axis([0,10,-1.1,1.1])
+plt.ylabel('x'); plt.axis([0,10,-1.1,1.1])
 plt.subplot(2,1,2)
 plt.plot(t,y.real,color='C1')
-plt.xlabel('t')
-plt.ylabel('y')
-plt.axis([0,10,-1.1,1.1])
+plt.xlabel('t'); plt.ylabel('y'); plt.axis([0,10,-1.1,1.1])
 plt.show()
 ```
 
@@ -145,13 +142,10 @@ y = (-1/(2*j))*H1*np.exp(-j*w*t) + (1/(2*j))*H2*np.exp(j*w*t)
 plt.figure()
 plt.subplot(2,1,1)
 plt.plot(t,x)
-plt.ylabel('x')
-plt.axis([0,tmax,-1.1,1.1])
+plt.ylabel('x'); plt.axis([0,tmax,-1.1,1.1])
 plt.subplot(2,1,2)
 plt.plot(t,y.real,color='C1')
-plt.xlabel('t')
-plt.ylabel('y')
-plt.axis([0,tmax,-1.1,1.1])
+plt.xlabel('t'); plt.ylabel('y'); plt.axis([0,tmax,-1.1,1.1])
 plt.show()
 ```
 
@@ -191,7 +185,7 @@ $$
 Dans le code ci-dessous, on représente le résultat des 9 premières harmoniques de $x(t)$ et $y(t)$. 
 
 ```{pyodide}
-# Grandeurs à modifier
+# Grandeurs à modifier ######################
 m = 1 # masse du chariot
 c = 5 # constante de l'amortisseur
 k = 4 # constante du ressort
@@ -206,41 +200,22 @@ tmin = -5; tmax = 10; t = np.linspace(tmin,tmax,500)
 def X(k):
 	return -2/(np.pi*k**2)*(np.exp(-j*2*k*t) + np.exp(j*2*k*t))
 
-x1 = X(1); x3 = X(3); x5 = X(5); x7 = X(7); x9 = X(9)
-
-#x1 = -2/(np.pi*1**2)*(np.exp(-j*1*t) + np.exp(j*1*t))
-#x3 = -2/(np.pi*3**2)*(np.exp(-j*3*t) + np.exp(j*3*t))
-#x5 = -2/(np.pi*5**2)*(np.exp(-j*5*t) + np.exp(j*5*t))
-#x7 = -2/(np.pi*7**2)*(np.exp(-j*7*t) + np.exp(j*7*t))
-#x9 = -2/(np.pi*9**2)*(np.exp(-j*9*t) + np.exp(j*9*t))
-
-x = x1 + x3 + x5 + x7 + x9
+x1 = X(1); x3 = X(3); x5 = X(5); x7 = X(7); x9 = X(9); x = x1 + x3 + x5 + x7 + x9
 
 # Calcul des harmoniques pour y(t)
 def Y(k):
 	return -2/(np.pi*k**2)*(H(-k)*np.exp(-j*2*k*t) + H(1)*np.exp(j*2*k*t))
 
-y1 = Y(1); y3 = Y(3); y5 = Y(5); y7 = Y(7); y9 = Y(9)
-
-#y1 = -2/(np.pi*1**2)*(H(-1)*np.exp(-j*1*t) + H(1)*np.exp(j*1*t))
-#y3 = -2/(np.pi*3**2)*(H(-3)*np.exp(-j*3*t) + H(3)*np.exp(j*3*t))
-#y5 = -2/(np.pi*5**2)*(H(-5)*np.exp(-j*5*t) + H(5)*np.exp(j*5*t))
-#y7 = -2/(np.pi*7**2)*(H(-7)*np.exp(-j*7*t) + H(7)*np.exp(j*7*t))
-#y9 = -2/(np.pi*9**2)*(H(-9)*np.exp(-j*9*t) + H(9)*np.exp(j*9*t))
-
-y = y1 + y3 + y5 + y7 + y9
+y1 = Y(1); y3 = Y(3); y5 = Y(5); y7 = Y(7); y9 = Y(9); y = y1 + y3 + y5 + y7 + y9
 
 # Affichage
 plt.figure()
 plt.subplot(2,1,1)
-plt.plot(t,x)
-plt.axis([tmin,tmax,-2,2])
-plt.ylabel('x')
+plt.plot(t,x.real)
+plt.axis([tmin,tmax,-2,2]); plt.ylabel('x')
 plt.subplot(2,1,2)
-plt.plot(t,y,color='C1')
-plt.xlabel('t')
-plt.ylabel('y')
-plt.axis([tmin,tmax,-2,2])
+plt.plot(t,y.real,color='C1')
+plt.xlabel('t'); plt.ylabel('y'); plt.axis([tmin,tmax,-2,2])
 plt.show()
 ```
 

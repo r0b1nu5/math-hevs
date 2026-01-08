@@ -1,4 +1,4 @@
-# Mathématiques HEI {.unnumbered}
+# List des cours {.unnumbered}
 
 Cette page regroupe quelques documents additionnel pour les cours de mathématiques donnés à la Haute Ecole d'Ingénierie de Sion.
 

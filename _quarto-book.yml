@@ -7,12 +7,12 @@ number-depth: 1
 
 book:
   reader-mode: false
-  title: "Mathématiques HEI"
+  title: "Mathématiques HEI--"
   chapters:
     - index.qmd
-    - part: "Analyse 3"
+    - part: "Analyse 3--"
       chapters:
-        - an3/index.qmd
+        - an3/251104/index.qmd
 format:
   live-html:
     theme: cosmo

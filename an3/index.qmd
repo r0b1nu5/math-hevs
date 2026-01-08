@@ -2,8 +2,8 @@
 
 Les pages qui suivent regroupe les activités en ligne du cours d'Analyse 3, pour la classe SE3fb de l'automne 2025.
 
-- [Activité du 4 novembre 2025](an3/251104/index.qmd)
-- [Système masse-ressort-amortisseur interactif](an3/260108/index.qmd)
+- [Activité du 4 novembre 2025](251104/index.qmd)
+- [Système masse-ressort-amortisseur interactif](260108/index.qmd)
 
 
 

@@ -10,11 +10,11 @@ book:
   title: "Mathématiques HEI"
   chapters:
     - index.qmd
-    - an3/index.qmd
+    - part: "Analyse 3"
       chapters:
+        - an3/index.qmd
         - an3/251104/index.qmd
         - an3/260108/index.qmd
-    - part: "Analyse 3"
 format:
   live-html:
     theme: cosmo

@@ -1,0 +1,38 @@
+# Système masse-ressort-amortisseur interactif (Desmos) {.unnumbered}
+
+Le code ci-dessous (TODO) permet de calculer les paramètre à entrer dans [ce calculateur Demsos](https://www.desmos.com/calculator/uzwkckigsv)
+
+```{pyodide}
+# On charge les librairies nécessaires.
+import numpy as np
+import matplotlib.pyplot as plt
+import cmath
+j = complex(0,1) # On définit l'unité imaginaire comme 'j'.
+
+# On calcule le réponse fréquentielle pour des vitesses angulaires allant de 0 à 100 [rad/s].
+w = np.linspace(0,100,500)
+H = (j*5*w)/(4 - w**2 + j*5*w)
+
+# On affiche les graphes de |H| et de arg(H).
+plt.figure('fig1',(8,4))
+plt.subplot(1,2,1)
+plt.plot(w,abs(H))
+plt.xlabel('w')
+plt.ylabel('|H|')
+
+# Calcul de l'argument de la réponse fréquetielle.
+phi = []
+for i in np.arange(len(w)):
+	phi.append(cmath.phase(H[i]))
+
+plt.subplot(1,2,2)
+plt.plot(w,phi)
+plt.xlabel('w')
+plt.ylabel('arg(H)')
+
+plt.show()
+```
+
+
+
+

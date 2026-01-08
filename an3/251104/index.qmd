@@ -42,7 +42,7 @@ plt.plot(w,abs(H))
 plt.xlabel('w')
 plt.ylabel('|H|')
 
-# Calcul de l'argument de la réponse fréquetielle.
+# Calcul de l'argument de la réponse fréquentielle.
 phi = []
 for i in np.arange(len(w)):
 	phi.append(cmath.phase(H[i]))

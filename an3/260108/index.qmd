@@ -1,36 +1,134 @@
 # Système masse-ressort-amortisseur interactif (Desmos) {.unnumbered}
 
-Le code ci-dessous (TODO) permet de calculer les paramètre à entrer dans [ce calculateur Demsos](https://www.desmos.com/calculator/uzwkckigsv)
+Le code ci-dessous permet de calculer les paramètre à entrer dans [ce calculateur Demsos](https://www.desmos.com/calculator/uzwkckigsv).
+Les système est composé (de gauche à droite) d'un point fixe, d'un amortisseur (de constante $d$), d'un masse ($m=1$, position $y(t)$), d'un ressort (de constante $k$) et d'un point mobile qui suit un horaire sinusoïdal ($x(t) = \sin(\omega t)$).
+
+## Marche a suivre
+Dans le champ de code ci-dessous, entrer les constantes d'amortissement $d$ et du ressort $k$, ainsi que la vitesse angulaire de l'excitation $\omega$.
+En sortie, le code affiche les quatre constantes $A$, $B$, $C$ et $D$ à renseigner au [calculateur Desmos](https://www.desmos.com/calculator/uzwkckigsv), ainsi que:
+- les deux pôles ($s_1$ et $s_2$) de la fonction de transfert si ceux-ci sont réels ;
+- les parties réelle ($\alpha$) et imaginaire ($\beta$) des pôles de la fonction de transfert si ceux-ci son conjugué complexes.
+
+Dans le [calculateur Desmos](https://www.desmos.com/calculator/uzwkckigsv) :
+1. Renseigner les paramètres $A$, $B$, $C$ et $D$ dans les champs correspondants ;
+1. Renseigner les pôles ($s_1$ et $s_2$) ou leur parties réelle ($\alpha$) et imaginaire ($\beta$) dans les champs correspondants ; 
+1. Adapter la définition de $x_t$ :
+   - Utiliser $x_t = x_0 + x_R$ si les pôles de la fonction de transfert sont réels ;
+   - Utiliser $x_t = x_0 + x_I$ si les pôles de la fonction de transfert sont complexes ;
+1. Lancer l'animation en laissant $t$ évoluer.
+
 
 ```{pyodide}
-# On charge les librairies nécessaires.
 import numpy as np
 import matplotlib.pyplot as plt
-import cmath
-j = complex(0,1) # On définit l'unité imaginaire comme 'j'.
 
-# On calcule le réponse fréquentielle pour des vitesses angulaires allant de 0 à 100 [rad/s].
-w = np.linspace(0,100,500)
-H = (j*5*w)/(4 - w**2 + j*5*w)
+d = 5
+k = 4
+omega = 1
 
-# On affiche les graphes de |H| et de arg(H).
-plt.figure('fig1',(8,4))
-plt.subplot(1,2,1)
-plt.plot(w,abs(H))
-plt.xlabel('w')
-plt.ylabel('|H|')
+# Discriminant pour la partie homogène (m = 1)
+Delta = d**2 - 4.0 * 1.0 * k
 
-# Calcul de l'argument de la réponse fréquetielle.
-phi = []
-for i in np.arange(len(w)):
-	phi.append(cmath.phase(H[i]))
+if Delta < 0:
+	print(f"Irréductible, Δ = {Delta}:")
 
-plt.subplot(1,2,2)
-plt.plot(w,phi)
-plt.xlabel('w')
-plt.ylabel('arg(H)')
+	# Système linéaire pour A, B, C, D
+	M = np.array([
+		[1.0, 0.0, 1.0, 0.0],
+		[d,   1.0, 0.0, 1.0],
+		[k,   d,   omega**2, 0.0],
+		[0.0, k,   0.0,      omega**2]
+	], dtype=float)
+	rhs = np.array([0.0, 0.0, 0.0, k*omega], dtype=float)
+	A, B, C, D = np.linalg.solve(M, rhs)
 
-plt.show()
+	alpha = -d / 2.0
+	beta = np.sqrt(4.0 * k - d**2) / 2.0
+
+	print(f"A = {A}")
+	print(f"B = {B}")
+	print(f"C = {C}")
+	print(f"D = {D}")
+	print(f"α = {alpha}")
+	print(f"β = {beta}")
+
+	# Figure des pôles et de +/- omega
+	plt.figure()
+	plt.axhline(0, color='k')
+	plt.axvline(0, color='k')
+	# Points (alpha, ±beta)
+	plt.plot([alpha, alpha], [beta, -beta], "o")
+	# Points (0, ±omega)
+	plt.plot([0, 0], [omega, -omega], "o")
+	plt.title("Pôles complexes et ±ω")
+	plt.xlabel("Réel")
+	plt.ylabel("Imaginaire")
+
+	# Signaux temporels
+	t = np.linspace(0.0, 10.0, 200)
+	x = np.sin(omega * t)
+	y = (A * np.cos(omega * t)+ (B / omega) * np.sin(omega * t) + np.exp(alpha * t) * (C * np.cos(beta * t) + ((D + C * alpha) / beta) * np.sin(beta * t)))
+
+	plt.figure()
+	plt.subplot(2, 1, 1)
+	plt.plot(t, x)
+	plt.ylabel("x(t)")
+	plt.title("Entrée et sortie (Δ < 0)")
+	plt.subplot(2, 1, 2)
+	plt.plot(t, y)
+	plt.xlabel("t")
+	plt.ylabel("y(t)")
+	plt.tight_layout()
+	plt.show()
+
+else:
+	print(f"Réductible, Δ = {Delta}:")
+	s1 = (-d + np.sqrt(Delta)) / 2.0
+	s2 = (-d - np.sqrt(Delta)) / 2.0
+
+	# Système linéaire pour A, B, C, D
+	M = np.array([
+		[1.0,       0.0,      1.0,        1.0],
+		[-(s1+s2),  1.0,     -s2,       -s1],
+		[s1*s2,    -(s1+s2),  omega**2,  omega**2],
+		[0.0,       s1*s2,   -omega**2*s2, -omega**2*s1]
+	], dtype=float)
+	rhs = np.array([0.0, 0.0, 0.0, k*omega], dtype=float)
+	A, B, C, D = np.linalg.solve(M, rhs)
+
+	print(f"A = {A}")
+	print(f"B = {B}")
+	print(f"C = {C}")
+	print(f"D = {D}")
+	print(f"s1 = {s1}")
+	print(f"s2 = {s2}")
+	
+	# Figure des pôles réels et de +/- omega
+	plt.figure()
+	plt.axhline(0, color='k')
+	plt.axvline(0, color='k')
+	plt.plot([s1, s2], [0.0, 0.0], "o")   # Points (s1, 0) et (s2, 0)
+	plt.plot([0.0, 0.0], [omega, -omega], "o")  # Points (0, ±omega)
+	plt.title("Pôles réels et ±ω")
+	plt.xlabel("Réel")
+	plt.ylabel("Imaginaire")
+
+	# Signaux temporels
+	t = np.linspace(0.0, 50.0, 200)
+	x = np.sin(omega * t)
+	y = (A * np.cos(omega * t) + (B / omega) * np.sin(omega * t) + C * np.exp(s1 * t) + D * np.exp(s2 * t))
+
+	plt.figure()
+	plt.subplot(2, 1, 1)
+	plt.plot(t, x)
+	plt.ylabel("x(t)")
+	plt.title("Entrée et sortie (Δ ≥ 0)")
+	plt.subplot(2, 1, 2)
+	plt.plot(t, y)
+	plt.xlabel("t")
+	plt.ylabel("y(t)")
+	plt.tight_layout()
+	plt.show()
 ```
 
 

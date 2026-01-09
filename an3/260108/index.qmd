@@ -5,12 +5,12 @@ Les système est composé (de gauche à droite) d'un point fixe, d'un amortisseu
 
 ## Marche a suivre
 Dans le champ de code ci-dessous, entrer les constantes d'amortissement $d$ et du ressort $k$, ainsi que la vitesse angulaire de l'excitation $\omega$.
-En sortie, le code affiche les quatre constantes $A$, $B$, $C$ et $D$ à renseigner au [calculateur Desmos](https://www.desmos.com/calculator/uzwkckigsv), ainsi que:
+En sortie, le code affiche les quatre constantes $A$, $B$, $C$ et $D$ à renseigner au [calculateur Desmos](https://www.desmos.com/calculator/uzwkckigsv){target="_blank"}, ainsi que:
 
 - les deux pôles ($s_1$ et $s_2$) de la fonction de transfert si ceux-ci sont réels ;
 - les parties réelle ($\alpha$) et imaginaire ($\beta$) des pôles de la fonction de transfert si ceux-ci son conjugué complexes.
 
-Dans le [calculateur Desmos](https://www.desmos.com/calculator/uzwkckigsv) :
+Dans le [calculateur Desmos](https://www.desmos.com/calculator/uzwkckigsv){target="_blank"} :
 
 1. Renseigner les paramètres $A$, $B$, $C$ et $D$ dans les champs correspondants ;
 1. Renseigner les pôles ($s_1$ et $s_2$) ou leur parties réelle ($\alpha$) et imaginaire ($\beta$) dans les champs correspondants ; 

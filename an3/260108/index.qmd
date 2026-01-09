@@ -63,6 +63,8 @@ if Delta < 0:
 	plt.title("Pôles complexes et ±ω")
 	plt.xlabel("Réel")
 	plt.ylabel("Imaginaire")
+	plt.axis([-7,7,-7,7])
+	plt.show()
 
 	# Signaux temporels
 	t = np.linspace(0.0, 10.0, 200)
@@ -112,6 +114,8 @@ else:
 	plt.title("Pôles réels et ±ω")
 	plt.xlabel("Réel")
 	plt.ylabel("Imaginaire")
+	plt.axis([-7,7,-7,7])
+	plt.show()
 
 	# Signaux temporels
 	t = np.linspace(0.0, 50.0, 200)

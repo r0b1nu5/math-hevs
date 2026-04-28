@@ -10,6 +10,72 @@
     ]
   },
   {
+    "objectID": "mtha1/index.html",
+    "href": "mtha1/index.html",
+    "title": "Semestre de printemps 2025-26",
+    "section": "",
+    "text": "Printemps 2026, classe S2fb\nLes pages qui suivent regroupe les activités en ligne du cours de Mathématiques Appliquées 1.",
+    "crumbs": [
+      "Mathématiques Appliquées 1",
+      "Semestre de printemps 2025-26"
+    ]
+  },
+  {
+    "objectID": "mtha1/index.html#printemps-2026-classe-s2fb",
+    "href": "mtha1/index.html#printemps-2026-classe-s2fb",
+    "title": "Semestre de printemps 2025-26",
+    "section": "",
+    "text": "Activité du 30 avril 2026",
+    "crumbs": [
+      "Mathématiques Appliquées 1",
+      "Semestre de printemps 2025-26"
+    ]
+  },
+  {
+    "objectID": "mtha1/260430/index.html",
+    "href": "mtha1/260430/index.html",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "",
+    "text": "Rappel sur la notion de dérivée\nCette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.\nDans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). Cette méthode a l’avantage de fonctionner même lorsque l’équation différentielle est trop compliquée pour être résolue avec “papier et crayon”, mais a l’incovénient de ne donner qu’un approximation de la solution.\nConsidérons l’équation différentielle de l’exercice 2 de la série 5 : \\[\ny' = -xy^2\n\\]\nNous avons vu en Analyse 2 que la dérivée d’une fonction \\(y(x)\\) (en rouge dans la figure) en un point \\(x_0\\) donne la pente de la droite tangente à \\(y(x)\\) au point \\((x_0,y(x_0))\\) (en bleu dans la figure). Etant donné un point de départ \\((x_0,y_0)\\) pour notre fonction, la dérivée va nous informer sur la direction dans laquelle la fonction va évoluer.",
+    "crumbs": [
+      "Mathématiques Appliquées 1",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "mtha1/260430/index.html#rappel-sur-la-notion-de-dérivée",
+    "href": "mtha1/260430/index.html#rappel-sur-la-notion-de-dérivée",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "",
+    "text": "Tangente à une courbe",
+    "crumbs": [
+      "Mathématiques Appliquées 1",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "mtha1/260430/index.html#marche-à-suivre",
+    "href": "mtha1/260430/index.html#marche-à-suivre",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "Marche à suivre",
+    "text": "Marche à suivre\nAfin de suivre la fonction définie par l’équation différentielle ci-dessus, nous allons nous placer à un point donnée (nos conditions initales) et faire de petit pas en suivant la direction indiquée par la dérivée.\nCommençons au point \\((x_0,y_0) = (1,1)\\). A ce point-là, on peut calculer la dérivée de la fonction \\(y(x)\\) à la main ou à la calculatrice, grâce à l’équation différentielle. En effet, on connaît les coordonnées \\(x\\) et \\(y\\) qui vont dans le membre de droite de l’équation, on peut donc calculer ce que vaut \\(y'\\) à ce point-là : \\[\ny' = -xy^2 = -1\\cdot 1^2 = -1\n\\]\nDonc si on se déplace d’une petit distance \\(\\delta_x = 0.1\\) le long de l’axe des \\(x\\), conformément à la figure ci-dessus, on doit se déplacer d’une distance \\(y'\\cdot\\delta_x = -1\\cdot 0.1 = -0.1\\) le long de l’axe des \\(y\\). Cela nous amène au point \\((x_1,y_1) = (1.1,0.9)\\).\nA ce point-là, on peut à nouveau calculer la dérivée \\(y'\\) grâce à l’équation différentielle.\n\n\n\n\n\n\nA nouveau, un petit déplacement de \\(\\delta_x=0.1\\) le long de l’axe des \\(x\\) induit un petit déplacement de \\(y'\\cdot\\delta_x = -0.891\\cdot 0.1 = -0.0891\\). On obtient ainsi un troisième point \\((x_2,y_2) = (1.2,0.8109)\\).\n\n\n\n\n\n\nVous pouvez répéter cette procédure pour calculer plus de points de la solution les uns après les autres : - Changez les valeurs de \\(x\\) et \\(y\\) dans la première cellule de code ci-dessus afin de calculer les valeurs suivantes. - Introduisez les valeurs obtenues pour x_new et y_new à la suite des vecteurs x_tot et y_tot dans la deuxième cellule de code afin de compléter la graphe de la fonction \\(y(x)\\).",
+    "crumbs": [
+      "Mathématiques Appliquées 1",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "mtha1/260430/index.html#pour-aller-plus-loin",
+    "href": "mtha1/260430/index.html#pour-aller-plus-loin",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\nLa méthode ci-dessus est fastidieuse à appliquer à la main, nous allons essayer de l’automatiser. Dans le code ci-dessous, complétez les parties avec ....\n\n\n\n\n\n\nUne fois que le code ci-dessus fonctionne, vous pouvez modifier les conditions initiales, la valeur de delta_x, le nombre d’itérations.",
+    "crumbs": [
+      "Mathématiques Appliquées 1",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
     "objectID": "an3/index.html",
     "href": "an3/index.html",
     "title": "Table des matières",
@@ -29,6 +95,28 @@
     "crumbs": [
       "Analyse 3",
       "Table des matières"
+    ]
+  },
+  {
+    "objectID": "an3/260108/index.html",
+    "href": "an3/260108/index.html",
+    "title": "Système masse-ressort-amortisseur interactif (Desmos)",
+    "section": "",
+    "text": "Marche a suivre\nLe code ci-dessous permet de calculer les paramètre à entrer dans ce calculateur Demsos. Les système est composé (de gauche à droite) d’un point fixe, d’un amortisseur (de constante \\(d\\)), d’un masse (\\(m=1\\), position \\(y(t)\\)), d’un ressort (de constante \\(k\\)) et d’un point mobile qui suit un horaire sinusoïdal (\\(x(t) = \\sin(\\omega t)\\)).\nDans le champ de code ci-dessous, entrer les constantes d’amortissement \\(d\\) et du ressort \\(k\\), ainsi que la vitesse angulaire de l’excitation \\(\\omega\\). En sortie, le code affiche les quatre constantes \\(A\\), \\(B\\), \\(C\\) et \\(D\\) à renseigner au calculateur Desmos, ainsi que:\nDans le calculateur Desmos :",
+    "crumbs": [
+      "Analyse 3",
+      "Système masse-ressort-amortisseur interactif (Desmos)"
+    ]
+  },
+  {
+    "objectID": "an3/260108/index.html#marche-a-suivre",
+    "href": "an3/260108/index.html#marche-a-suivre",
+    "title": "Système masse-ressort-amortisseur interactif (Desmos)",
+    "section": "",
+    "text": "les deux pôles (\\(s_1\\) et \\(s_2\\)) de la fonction de transfert si ceux-ci sont réels ;\nles parties réelle (\\(\\alpha\\)) et imaginaire (\\(\\beta\\)) des pôles de la fonction de transfert si ceux-ci son conjugué complexes.\n\n\n\nRenseigner les paramètres \\(A\\), \\(B\\), \\(C\\) et \\(D\\) dans les champs correspondants ;\nRenseigner les pôles (\\(s_1\\) et \\(s_2\\)) ou leur parties réelle (\\(\\alpha\\)) et imaginaire (\\(\\beta\\)) dans les champs correspondants ;\nAdapter la définition de \\(x_t\\) :\n\nUtiliser \\(x_t = x_0 + x_R\\) si les pôles de la fonction de transfert sont réels ;\nUtiliser \\(x_t = x_0 + x_I\\) si les pôles de la fonction de transfert sont complexes ;\n\nLancer l’animation en laissant \\(t\\) évoluer.",
+    "crumbs": [
+      "Analyse 3",
+      "Système masse-ressort-amortisseur interactif (Desmos)"
     ]
   },
   {
@@ -62,28 +150,6 @@
     "crumbs": [
       "Analyse 3",
       "Activité du mardi 4 novembre 2025"
-    ]
-  },
-  {
-    "objectID": "an3/260108/index.html",
-    "href": "an3/260108/index.html",
-    "title": "Système masse-ressort-amortisseur interactif (Desmos)",
-    "section": "",
-    "text": "Marche a suivre\nLe code ci-dessous permet de calculer les paramètre à entrer dans ce calculateur Demsos. Les système est composé (de gauche à droite) d’un point fixe, d’un amortisseur (de constante \\(d\\)), d’un masse (\\(m=1\\), position \\(y(t)\\)), d’un ressort (de constante \\(k\\)) et d’un point mobile qui suit un horaire sinusoïdal (\\(x(t) = \\sin(\\omega t)\\)).\nDans le champ de code ci-dessous, entrer les constantes d’amortissement \\(d\\) et du ressort \\(k\\), ainsi que la vitesse angulaire de l’excitation \\(\\omega\\). En sortie, le code affiche les quatre constantes \\(A\\), \\(B\\), \\(C\\) et \\(D\\) à renseigner au calculateur Desmos, ainsi que:\nDans le calculateur Desmos :",
-    "crumbs": [
-      "Analyse 3",
-      "Système masse-ressort-amortisseur interactif (Desmos)"
-    ]
-  },
-  {
-    "objectID": "an3/260108/index.html#marche-a-suivre",
-    "href": "an3/260108/index.html#marche-a-suivre",
-    "title": "Système masse-ressort-amortisseur interactif (Desmos)",
-    "section": "",
-    "text": "les deux pôles (\\(s_1\\) et \\(s_2\\)) de la fonction de transfert si ceux-ci sont réels ;\nles parties réelle (\\(\\alpha\\)) et imaginaire (\\(\\beta\\)) des pôles de la fonction de transfert si ceux-ci son conjugué complexes.\n\n\n\nRenseigner les paramètres \\(A\\), \\(B\\), \\(C\\) et \\(D\\) dans les champs correspondants ;\nRenseigner les pôles (\\(s_1\\) et \\(s_2\\)) ou leur parties réelle (\\(\\alpha\\)) et imaginaire (\\(\\beta\\)) dans les champs correspondants ;\nAdapter la définition de \\(x_t\\) :\n\nUtiliser \\(x_t = x_0 + x_R\\) si les pôles de la fonction de transfert sont réels ;\nUtiliser \\(x_t = x_0 + x_I\\) si les pôles de la fonction de transfert sont complexes ;\n\nLancer l’animation en laissant \\(t\\) évoluer.",
-    "crumbs": [
-      "Analyse 3",
-      "Système masse-ressort-amortisseur interactif (Desmos)"
     ]
   }
 ]

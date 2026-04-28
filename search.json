@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Mathématiques HEI",
     "section": "",
-    "text": "Liste des cours\nCette page regroupe quelques documents additionnel pour les cours de mathématiques donnés à la Haute Ecole d’Ingénierie de Sion.\n\nAnalyse 3",
+    "text": "Liste des cours\nCette page regroupe quelques documents additionnel pour les cours de mathématiques donnés à la Haute Ecole d’Ingénierie de Sion.\n\nMathématiques Appliquées\nAnalyse 3",
     "crumbs": [
       "Liste des cours"
     ]
@@ -12,12 +12,23 @@
   {
     "objectID": "an3/index.html",
     "href": "an3/index.html",
-    "title": "Semestre d’automne 2025-26",
+    "title": "Table des matières",
     "section": "",
-    "text": "Les pages qui suivent regroupe les activités en ligne du cours d’Analyse 3, pour la classe SE3fb de l’automne 2025.\n\nActivité du 4 novembre 2025\nSystème masse-ressort-amortisseur interactif",
+    "text": "Automne 2025, classe SE3fb\nLes pages qui suivent regroupe les activités en ligne du cours d’Analyse 3.",
     "crumbs": [
       "Analyse 3",
-      "Semestre d'automne 2025-26"
+      "Table des matières"
+    ]
+  },
+  {
+    "objectID": "an3/index.html#automne-2025-classe-se3fb",
+    "href": "an3/index.html#automne-2025-classe-se3fb",
+    "title": "Table des matières",
+    "section": "",
+    "text": "Système masse-ressort-amortisseur interactif\nActivité du 4 novembre 2025",
+    "crumbs": [
+      "Analyse 3",
+      "Table des matières"
     ]
   },
   {

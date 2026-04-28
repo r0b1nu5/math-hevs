@@ -10,11 +10,15 @@ book:
   title: "Mathématiques HEI"
   chapters:
     - index.qmd
+    - part: "Mathématiques Appliquées 1"
+      chapters:
+        - mtha1/index.qmd
+        - mtha1/260430/index.qmd
     - part: "Analyse 3"
       chapters:
         - an3/index.qmd
-        - an3/251104/index.qmd
         - an3/260108/index.qmd
+        - an3/251104/index.qmd
 format:
   live-html:
     theme: cosmo

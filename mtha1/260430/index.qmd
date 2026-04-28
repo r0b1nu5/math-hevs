@@ -36,8 +36,8 @@ A ce point-là, on peut à nouveau calculer la dérivée $y'$ grâce à l'équat
 import numpy as np
 
 delta_x = .1
-x = .1
-y = .1
+x = 1.0
+y = 1.0
 
 yp = -x*y**2
 print(f"Dérivée de y(x) : y' = {yp}")

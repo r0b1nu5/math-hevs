@@ -1,0 +1,128 @@
+# Résolution numérique d'une équation différentielle {.unnumbered}
+
+*Cette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.*
+
+Dans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). 
+Cette méthode a l'avantage de fonctionner même lorsque l'équation différentielle est trop compliquée pour être résolue avec "papier et crayon", mais a l'incovénient de ne donner qu'un approximation de la solution.
+
+Considérons l'équation différentielle de l'exercice 2 de la série 5 :
+$$
+y' = -xy^2
+$$
+
+## Rappel sur la notion de dérivée
+Nous avons vu en Analyse 2 que la dérivée d'une fonction $y(x)$ (en rouge dans la figure) en un point $x_0$ donne la pente de la droite tangente à $y(x)$ au point $(x_0,y(x_0))$ (en bleu dans la figure).
+Etant donné un point de départ $(x_0,y_0)$ pour notre fonction, la dérivée va nous informer sur la direction dans laquelle la fonction va évoluer.
+
+![Tangente à une courbe](derivative.pdf)
+
+
+## Marche à suivre
+Afin de suivre la fonction définie par l'équation différentielle ci-dessus, nous allons nous placer à un point donnée (nos conditions initales) et faire de petit pas en suivant la direction indiquée par la dérivée.
+
+Commençons au point $(x_0,y_0) = (1,1)$. 
+A ce point-là, on peut calculer la dérivée de la fonction $y(x)$ à la main ou à la calculatrice, grâce à l'équation différentielle. 
+En effet, on connaît les coordonnées $x$ et $y$ qui vont dans le membre de droite de l'équation, on peut donc calculer ce que vaut $y'$ à ce point-là :
+$$
+y' = -xy^2 = -1\cdot 1^2 = -1
+$$
+
+Donc si on se déplace d'une petit distance $\delta_x = 0.1$ le long de l'axe des $x$, conformément à la figure ci-dessus, on doit se déplacer d'une distance $y'\cdot\delta_x = -1\cdot 0.1 = -0.1$ le long de l'axe des $y$. 
+Cela nous amène au point $(x_1,y_1) = (1.1,0.9)$. 
+
+A ce point-là, on peut à nouveau calculer la dérivée $y'$ grâce à l'équation différentielle.
+
+```{pyodide}
+import numpy as np
+
+delta_x = .1
+x = .1
+y = .1
+
+yp = -x*y**2
+print(f"Dérivée de y(x) : y' = {yp}")
+
+x_new = x + delta_x
+y_new = y + yp*delta_x
+print(f"Nouveau point calculé : (x_new,y_new) = ({x_new},{y_new})")
+```
+
+A nouveau, un petit déplacement de $\delta_x=0.1$ le long de l'axe des $x$ induit un petit déplacement de $y'\cdot\delta_x = -0.891\cdot 0.1 = -0.0891$.
+On obtient ainsi un troisième point $(x_2,y_2) = (1.2,0.8109)$.
+
+```{pyodide}
+import matplotlib.pyplot as plt
+
+# Liste des valeurs calculées
+x_tot = [1,1.1,1.2]
+y_tot = [1,.9,.8109]
+
+# Affichage des points calculés
+plt.figure()
+plt.axhline(0, color='k')
+plt.axvline(0, color='k')
+plt.plot(x_tot,y_tot,"-o")
+plt.title("Approximation de la solution")
+plt.xlabel("x")
+plt.ylabel("y")
+#plt.axis([-7,7,-7,7])
+plt.show()
+```
+
+Vous pouvez répéter cette procédure pour calculer plus de points de la solution les uns après les autres : 
+- Changez les valeurs de $x$ et $y$ dans la première cellule de code ci-dessus afin de calculer les valeurs suivantes.
+- Introduisez les valeurs obtenues pour `x_new` et `y_new` à la suite des vecteurs `x_tot` et `y_tot` dans la deuxième cellule de code afin de compléter la graphe de la fonction $y(x)$. 
+
+## Pour aller plus loin
+La méthode ci-dessus est fastidieuse à appliquer à la main, nous allons essayer de l'automatiser.
+Dans le code ci-dessous, complétez les parties avec `...`.
+
+```{pyodide}
+# Conditions initiales
+x = 1
+y = 1
+
+# Vecteurs qui contiendront toutes les valeurs calculées
+x_tot = [x,]
+y_tot = [y,]
+
+# Petit déplacement le long de l'axe des x
+delta_x = 0.1
+
+# Choisissez le nombre de répétitions que vous voulez effectuer
+n_iter = ...
+
+iter = 0 # On initialise le compteur d'itérations
+
+while iter < n_iter: # Tant que le nombre d'itérations voulu n'est pas atteint
+	iter += 1 # On incrémente le compteur
+
+	yp = ... # On calcule la dérivée
+	x_new = ... # On calcule la nouvelle coordonnée x
+	y_new = ... # On calcule la nouvelle coordonnée y
+
+	# On ajoute les valeurs calculées pour x et y à la fin des vecteurs de valeurs
+	x_tot.append(x_new)
+	y_tot.append(y_new)
+
+	# On met à jour les valeur de x et y avec les nouvelles valeurs calculées
+	x = x_new
+	y = y_new
+
+# On affiche la courbe calculée
+plt.figure()
+plt.axhline(0, color='k')
+plt.axvline(0, color='k')
+plt.plot(x_tot,y_tot,"-o")
+plt.title("Approximation de la solution")
+plt.xlabel("x")
+plt.ylabel("y")
+#plt.axis([-7,7,-7,7])
+plt.show()
+```
+
+Une fois que le code ci-dessus fonctionne, vous pouvez modifier les conditions initiales, la valeur de `delta_x`, le nombre d'itérations.
+
+
+
+

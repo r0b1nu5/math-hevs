@@ -1,9 +1,10 @@
-# Semestre d'automne 2025-26 {.unnumbered}
+# Table des matières {.unnumbered}
 
-Les pages qui suivent regroupe les activités en ligne du cours d'Analyse 3, pour la classe SE3fb de l'automne 2025.
+Les pages qui suivent regroupe les activités en ligne du cours d'Analyse 3.
 
-- [Activité du 4 novembre 2025](251104/index.qmd)
+## Automne 2025, classe SE3fb
 - [Système masse-ressort-amortisseur interactif](260108/index.qmd)
+- [Activité du 4 novembre 2025](251104/index.qmd)
 
 
 

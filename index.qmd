@@ -2,7 +2,7 @@
 
 Cette page regroupe quelques documents additionnel pour les cours de mathématiques donnés à la Haute Ecole d'Ingénierie de Sion.
 
-- [Mathématiques Appliquées](mtha1/index.qmd)
+- [Mathématiques Appliquées 1](mtha1/index.qmd)
 - [Analyse 3](an3/index.qmd)
 
 

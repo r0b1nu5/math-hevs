@@ -2,6 +2,9 @@
 
 *Cette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.*
 
+[Slides]({{< var base_url>}}slides/mtha1/260430/slides.html){.btn .btn-outline-primary .btn role="button"} 
+[Slides PDF]({{< var base_url>}}slides/mtha1/260430/slides.pdf){.btn .btn-outline-secondary .btn role="button"} 
+
 Dans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). 
 Cette méthode a l'avantage de fonctionner même lorsque l'équation différentielle est trop compliquée pour être résolue avec "papier et crayon", mais a l'incovénient de ne donner qu'un approximation de la solution.
 

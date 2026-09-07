@@ -4,7 +4,37 @@
     "href": "index.html",
     "title": "Mathématiques HEI",
     "section": "",
-    "text": "Liste des cours\nCette page regroupe quelques documents additionnel pour les cours de mathématiques donnés à la Haute Ecole d’Ingénierie de Sion.\n\nMathématiques Appliquées 1\nAnalyse 3",
+    "text": "Liste des cours\nCette page regroupe une partie des documents des cours de mathématiques donnés à la Haute Ecole d’Ingénierie de Sion.",
+    "crumbs": [
+      "Liste des cours"
+    ]
+  },
+  {
+    "objectID": "index.html#semestre-2",
+    "href": "index.html#semestre-2",
+    "title": "Mathématiques HEI",
+    "section": "Semestre 2",
+    "text": "Semestre 2\n\nMathématiques Appliquées 1 (SYND/ETE)",
+    "crumbs": [
+      "Liste des cours"
+    ]
+  },
+  {
+    "objectID": "index.html#semestre-3",
+    "href": "index.html#semestre-3",
+    "title": "Mathématiques HEI",
+    "section": "Semestre 3",
+    "text": "Semestre 3\n\nAnalyse 3 (SYND/ETE)",
+    "crumbs": [
+      "Liste des cours"
+    ]
+  },
+  {
+    "objectID": "index.html#semestre-5",
+    "href": "index.html#semestre-5",
+    "title": "Mathématiques HEI",
+    "section": "Semestre 5",
+    "text": "Semestre 5\n\nApplied Statistics: Times Series (DLS)",
     "crumbs": [
       "Liste des cours"
     ]

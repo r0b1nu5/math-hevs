@@ -1,8 +1,13 @@
 # Liste des cours {.unnumbered}
 
-Cette page regroupe quelques documents additionnel pour les cours de mathématiques donnés à la Haute Ecole d'Ingénierie de Sion.
+Cette page regroupe une partie des documents des cours de mathématiques donnés à la Haute Ecole d'Ingénierie de Sion.
 
-- [Mathématiques Appliquées 1](mtha1/index.qmd)
-- [Analyse 3](an3/index.qmd)
+## Semestre 2
+- [Mathématiques Appliquées 1 (SYND/ETE)](mtha1/index.qmd)
 
+## Semestre 3
+- [Analyse 3 (SYND/ETE)](an3/index.qmd)
+
+## Semestre 5
+- [Applied Statistics: Times Series (DLS)](ts/index.qmd)
 

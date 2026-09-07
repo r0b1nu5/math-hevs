@@ -1,0 +1,26 @@
+---
+title: "Mathématiques Appliquées 1"
+subtitle: "Test slides"
+format:
+	live-revealjs:
+		slide-number: true
+		brand: ../../_brand.yml
+		theme: ../../hevs.scss
+		show-slide-number: all
+		preview-links: auto
+		chalkboard: true
+		logo: Https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
+		footer: "MthA1"
+---
+
+## Slide 1 Test
+
+This is my first slide: 
+- I need to figure out
+- If this command works.
+
+
+## Is this a new slide?
+
+
+

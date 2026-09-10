@@ -308,7 +308,7 @@
     "href": "ts/week01/index.html#acquisition",
     "title": "Week 1: Introduction to time series",
     "section": "Acquisition",
-    "text": "Acquisition\n\nTime step\nThe acquisition of measurements requires the recording device to “read” the phenomenon and then “write” the recorded value. By nature, a time series cannot be continuous, because there is necessarily a gap between two consecutive values. Depending on the context, however, this gap can be made extremely small.\nIn practice, the duration of a time step, or sampling rate, should be made as small as needed for the purpose, but as large as possible to spare memory and computation.\nExample: Recording sounds requires to sample at a frequency of approximately 20 kHz (largest audible frequency).\nActually, we need to record at twice this frequency because of aliasing (see later, Nyquist's Theorem).\nIn this course, the time step of a time series will be denoted as \\(\\delta_t\\), measured in seconds.\n\n\nRecording time\nDepending on the context, there is also a minimal recording time required in order to observe certain phenomena.\nExample: In sound recording, if one does not record for more than 0.05 seconds, some audible sounds may not be recorded, because the lower bound of the audible spectrum is 20 Hz, i.e., 20 oscillations per second.\nIn this course, the duration of a time series will be denoted \\(T\\), measured in seconds.",
+    "text": "Acquisition\n\nTime step\nThe acquisition of measurements requires the recording device to “read” the phenomenon and then “write” the recorded value. By nature, a time series cannot be continuous, because there is necessarily a gap between two consecutive values. Depending on the context, however, this gap can be made extremely small.\nIn practice, the duration of a time step, or sampling rate, should be made as small as needed for the purpose, but as large as possible to spare memory and computation.\nExample: Recording sounds requires to sample at a frequency of approximately 20 kHz (largest audible frequency). Actually, we need to record at twice this frequency because of aliasing (see later, Nyquist’s Theorem).\nIn this course, the time step of a time series will be denoted as \\(\\delta_t\\), measured in seconds.\n\n\nRecording time\nDepending on the context, there is also a minimal recording time required in order to observe certain phenomena.\nExample: In sound recording, if one does not record for more than 0.05 seconds, some audible sounds may not be recorded, because the lower bound of the audible spectrum is 20 Hz, i.e., 20 oscillations per second.\nIn this course, the duration of a time series will be denoted \\(T\\), measured in seconds.",
     "crumbs": [
       "Time Series",
       "Week 1: Introduction to time series"
@@ -319,7 +319,7 @@
     "href": "ts/week01/index.html#resampling",
     "title": "Week 1: Introduction to time series",
     "section": "Resampling",
-    "text": "Resampling\nSometimes, the given time step of a time series is not appropriate for our purpose.\nExample: I want to study the impact of the season on temperature. \nIf the time step of my time series is at 15 minutes, this is too fine. \nGiven a fine time series, coarse graining is easy, but comes with a question. For each coarser time step, I have multiple values measured. Which one(?) should I use?\nTODO: Have illustrating figures",
+    "text": "Resampling\nSometimes, the given time step of a time series is not appropriate for our purpose.\nExample: I want to study the impact of the season on temperature. If the time step of my time series is at 15 minutes, this is too fine.\nGiven a fine time series, coarse graining is easy, but comes with a question. For each coarser time step, I have multiple values measured. Which one(?) should I use?\nTODO: Have illustrating figures",
     "crumbs": [
       "Time Series",
       "Week 1: Introduction to time series"
@@ -341,7 +341,7 @@
     "href": "ts/week01/index.html#noise",
     "title": "Week 1: Introduction to time series",
     "section": "Noise",
-    "text": "Noise\nExample: Measure the height of someone in milimeters.\nAny data acquisition is imperfect. Deviations of the measurements from the “real” system’s values are called noise. Noise is usually added (or substracted) from the measured values in the acquisition process.\nOne goal in time series analysis will be to mitigate the impact of noise.\nIn general, we will assume that the noise has zero mean. Therefore, the measured signal remains around the real signal.",
+    "text": "Noise\nExample: Measure the height of someone in millimeters.\nAny data acquisition is imperfect. Deviations of the measurements from the “real” system’s values are called noise. Noise is usually added (or substracted) from the measured values in the acquisition process.\nOne goal in time series analysis will be to mitigate the impact of noise.\nIn general, we will assume that the noise has zero mean. Therefore, the measured signal remains around the real signal.",
     "crumbs": [
       "Time Series",
       "Week 1: Introduction to time series"

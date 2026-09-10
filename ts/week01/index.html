@@ -325,22 +325,20 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="time-step">Time step</h3>
 <p>The acquisition of measurements requires the recording device to “read” the phenomenon and then “write” the recorded value. By nature, a time series cannot be continuous, because there is necessarily a gap between two consecutive values. Depending on the context, however, this gap can be made extremely small.</p>
 <p>In practice, the duration of a time step, or sampling rate, should be made as small as needed for the purpose, but as large as possible to spare memory and computation.</p>
-<pre><code>Example: Recording sounds requires to sample at a frequency of approximately 20 kHz (largest audible frequency).
-Actually, we need to record at twice this frequency because of aliasing (see later, Nyquist's Theorem).</code></pre>
+<p><strong>Example:</strong> <em>Recording sounds requires to sample at a frequency of approximately 20 kHz (largest audible frequency). Actually, we need to record at twice this frequency because of aliasing (see later, Nyquist’s Theorem).</em></p>
 <p>In this course, the time step of a time series will be denoted as <span class="math inline">\(\delta_t\)</span>, measured in seconds.</p>
 </section>
 <section id="recording-time" class="level3">
 <h3 class="anchored" data-anchor-id="recording-time">Recording time</h3>
 <p>Depending on the context, there is also a minimal recording time required in order to observe certain phenomena.</p>
-<pre><code>Example: In sound recording, if one does not record for more than 0.05 seconds, some audible sounds may not be recorded, because the lower bound of the audible spectrum is 20 Hz, i.e., 20 oscillations per second.</code></pre>
+<p><strong>Example:</strong> <em>In sound recording, if one does not record for more than 0.05 seconds, some audible sounds may not be recorded, because the lower bound of the audible spectrum is 20 Hz, i.e., 20 oscillations per second.</em></p>
 <p>In this course, the duration of a time series will be denoted <span class="math inline">\(T\)</span>, measured in seconds.</p>
 </section>
 </section>
 <section id="resampling" class="level2">
 <h2 class="anchored" data-anchor-id="resampling">Resampling</h2>
 <p>Sometimes, the given time step of a time series is not appropriate for our purpose.</p>
-<pre><code>Example: I want to study the impact of the season on temperature. 
-If the time step of my time series is at 15 minutes, this is too fine. </code></pre>
+<p><strong>Example:</strong> <em>I want to study the impact of the season on temperature. If the time step of my time series is at 15 minutes, this is too fine.</em></p>
 <p>Given a fine time series, coarse graining is easy, but comes with a question. For each coarser time step, I have multiple values measured. Which one(?) should I use?</p>
 <p><strong>TODO: Have illustrating figures</strong></p>
 </section>
@@ -352,7 +350,7 @@ If the time step of my time series is at 15 minutes, this is too fine. </code></
 </section>
 <section id="noise" class="level2">
 <h2 class="anchored" data-anchor-id="noise">Noise</h2>
-<pre><code>Example: Measure the height of someone in milimeters.</code></pre>
+<p><strong>Example:</strong> <em>Measure the height of someone in millimeters.</em></p>
 <p>Any data acquisition is imperfect. Deviations of the measurements from the “real” system’s values are called <strong>noise</strong>. Noise is usually added (or substracted) from the measured values in the acquisition process.</p>
 <p>One goal in time series analysis will be to mitigate the impact of noise.</p>
 <p>In general, we will assume that the noise has zero mean. Therefore, the measured signal remains around the real signal.</p>

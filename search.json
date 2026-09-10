@@ -181,5 +181,115 @@
       "Analyse 3",
       "Activité du mardi 4 novembre 2025"
     ]
+  },
+  {
+    "objectID": "ts/index.html",
+    "href": "ts/index.html",
+    "title": "Table of content",
+    "section": "",
+    "text": "Fall 2026\nThis page contains the material for the class Applied Statistics: Time Series.",
+    "crumbs": [
+      "Time Series",
+      "Table of content"
+    ]
+  },
+  {
+    "objectID": "ts/index.html#fall-2026",
+    "href": "ts/index.html#fall-2026",
+    "title": "Table of content",
+    "section": "",
+    "text": "September 15, 2026 (Course intro)\nSeptember 15, 2026\nSeptember 22, 2026\nSeptember 29, 2026\nOctober 6, 2026\nOctober 8, 2026\nOctober 15, 2026\nOctober 20, 2026\nNovember 3, 2026\nNovember 9, 2026\nNovember 10, 2026\nNovember 17, 2026\nNovember 19, 2026\nDecember 10, 2026\nDecember 17, 2026\nJanuary 19, 2027",
+    "crumbs": [
+      "Time Series",
+      "Table of content"
+    ]
+  },
+  {
+    "objectID": "ts/week00/index.html",
+    "href": "ts/week00/index.html",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "",
+    "text": "Rappel sur la notion de dérivée\nCette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.\nSlides Slides PDF\nDans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). Cette méthode a l’avantage de fonctionner même lorsque l’équation différentielle est trop compliquée pour être résolue avec “papier et crayon”, mais a l’incovénient de ne donner qu’un approximation de la solution.\nConsidérons l’équation différentielle de l’exercice 2 de la série 5 : \\[\ny' = -xy^2\n\\]\nNous avons vu en Analyse 2 que la dérivée d’une fonction \\(y(x)\\) (en rouge dans la figure) en un point \\(x_0\\) donne la pente de la droite tangente à \\(y(x)\\) au point \\((x_0,y(x_0))\\) (en bleu dans la figure). Etant donné un point de départ \\((x_0,y_0)\\) pour notre fonction, la dérivée va nous informer sur la direction dans laquelle la fonction va évoluer.",
+    "crumbs": [
+      "Time Series",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "ts/week00/index.html#rappel-sur-la-notion-de-dérivée",
+    "href": "ts/week00/index.html#rappel-sur-la-notion-de-dérivée",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "",
+    "text": "Tangente à une courbe",
+    "crumbs": [
+      "Time Series",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "ts/week00/index.html#marche-à-suivre",
+    "href": "ts/week00/index.html#marche-à-suivre",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "Marche à suivre",
+    "text": "Marche à suivre\nAfin de suivre la fonction définie par l’équation différentielle ci-dessus, nous allons nous placer à un point donnée (nos conditions initales) et faire de petit pas en suivant la direction indiquée par la dérivée.\nCommençons au point \\((x_0,y_0) = (1,1)\\). A ce point-là, on peut calculer la dérivée de la fonction \\(y(x)\\) à la main ou à la calculatrice, grâce à l’équation différentielle. En effet, on connaît les coordonnées \\(x\\) et \\(y\\) qui vont dans le membre de droite de l’équation, on peut donc calculer ce que vaut \\(y'\\) à ce point-là : \\[\ny' = -xy^2 = -1\\cdot 1^2 = -1\n\\]\nDonc si on se déplace d’une petit distance \\(\\delta_x = 0.1\\) le long de l’axe des \\(x\\), conformément à la figure ci-dessus, on doit se déplacer d’une distance \\(y'\\cdot\\delta_x = -1\\cdot 0.1 = -0.1\\) le long de l’axe des \\(y\\). Cela nous amène au point \\((x_1,y_1) = (1.1,0.9)\\).\nA ce point-là, on peut à nouveau calculer la dérivée \\(y'\\) grâce à l’équation différentielle.\n\n\n\n\n\n\nA nouveau, un petit déplacement de \\(\\delta_x=0.1\\) le long de l’axe des \\(x\\) induit un petit déplacement de \\(y'\\cdot\\delta_x = -0.891\\cdot 0.1 = -0.0891\\). On obtient ainsi un troisième point \\((x_2,y_2) = (1.2,0.8109)\\).\n\n\n\n\n\n\nVous pouvez répéter cette procédure pour calculer plus de points de la solution les uns après les autres : - Changez les valeurs de \\(x\\) et \\(y\\) dans la première cellule de code ci-dessus afin de calculer les valeurs suivantes. - Introduisez les valeurs obtenues pour x_new et y_new à la suite des vecteurs x_tot et y_tot dans la deuxième cellule de code afin de compléter la graphe de la fonction \\(y(x)\\).",
+    "crumbs": [
+      "Time Series",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "ts/week00/index.html#pour-aller-plus-loin",
+    "href": "ts/week00/index.html#pour-aller-plus-loin",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\nLa méthode ci-dessus est fastidieuse à appliquer à la main, nous allons essayer de l’automatiser. Dans le code ci-dessous, complétez les parties avec ....\n\n\n\n\n\n\nUne fois que le code ci-dessus fonctionne, vous pouvez modifier les conditions initiales, la valeur de delta_x, le nombre d’itérations.",
+    "crumbs": [
+      "Time Series",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "ts/week01/index.html",
+    "href": "ts/week01/index.html",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "",
+    "text": "Rappel sur la notion de dérivée\nCette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.\nSlides Slides PDF\nDans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). Cette méthode a l’avantage de fonctionner même lorsque l’équation différentielle est trop compliquée pour être résolue avec “papier et crayon”, mais a l’incovénient de ne donner qu’un approximation de la solution.\nConsidérons l’équation différentielle de l’exercice 2 de la série 5 : \\[\ny' = -xy^2\n\\]\nNous avons vu en Analyse 2 que la dérivée d’une fonction \\(y(x)\\) (en rouge dans la figure) en un point \\(x_0\\) donne la pente de la droite tangente à \\(y(x)\\) au point \\((x_0,y(x_0))\\) (en bleu dans la figure). Etant donné un point de départ \\((x_0,y_0)\\) pour notre fonction, la dérivée va nous informer sur la direction dans laquelle la fonction va évoluer.",
+    "crumbs": [
+      "Time Series",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "ts/week01/index.html#rappel-sur-la-notion-de-dérivée",
+    "href": "ts/week01/index.html#rappel-sur-la-notion-de-dérivée",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "",
+    "text": "Tangente à une courbe",
+    "crumbs": [
+      "Time Series",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "ts/week01/index.html#marche-à-suivre",
+    "href": "ts/week01/index.html#marche-à-suivre",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "Marche à suivre",
+    "text": "Marche à suivre\nAfin de suivre la fonction définie par l’équation différentielle ci-dessus, nous allons nous placer à un point donnée (nos conditions initales) et faire de petit pas en suivant la direction indiquée par la dérivée.\nCommençons au point \\((x_0,y_0) = (1,1)\\). A ce point-là, on peut calculer la dérivée de la fonction \\(y(x)\\) à la main ou à la calculatrice, grâce à l’équation différentielle. En effet, on connaît les coordonnées \\(x\\) et \\(y\\) qui vont dans le membre de droite de l’équation, on peut donc calculer ce que vaut \\(y'\\) à ce point-là : \\[\ny' = -xy^2 = -1\\cdot 1^2 = -1\n\\]\nDonc si on se déplace d’une petit distance \\(\\delta_x = 0.1\\) le long de l’axe des \\(x\\), conformément à la figure ci-dessus, on doit se déplacer d’une distance \\(y'\\cdot\\delta_x = -1\\cdot 0.1 = -0.1\\) le long de l’axe des \\(y\\). Cela nous amène au point \\((x_1,y_1) = (1.1,0.9)\\).\nA ce point-là, on peut à nouveau calculer la dérivée \\(y'\\) grâce à l’équation différentielle.\n\n\n\n\n\n\nA nouveau, un petit déplacement de \\(\\delta_x=0.1\\) le long de l’axe des \\(x\\) induit un petit déplacement de \\(y'\\cdot\\delta_x = -0.891\\cdot 0.1 = -0.0891\\). On obtient ainsi un troisième point \\((x_2,y_2) = (1.2,0.8109)\\).\n\n\n\n\n\n\nVous pouvez répéter cette procédure pour calculer plus de points de la solution les uns après les autres : - Changez les valeurs de \\(x\\) et \\(y\\) dans la première cellule de code ci-dessus afin de calculer les valeurs suivantes. - Introduisez les valeurs obtenues pour x_new et y_new à la suite des vecteurs x_tot et y_tot dans la deuxième cellule de code afin de compléter la graphe de la fonction \\(y(x)\\).",
+    "crumbs": [
+      "Time Series",
+      "Résolution numérique d'une équation différentielle"
+    ]
+  },
+  {
+    "objectID": "ts/week01/index.html#pour-aller-plus-loin",
+    "href": "ts/week01/index.html#pour-aller-plus-loin",
+    "title": "Résolution numérique d’une équation différentielle",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\nLa méthode ci-dessus est fastidieuse à appliquer à la main, nous allons essayer de l’automatiser. Dans le code ci-dessous, complétez les parties avec ....\n\n\n\n\n\n\nUne fois que le code ci-dessus fonctionne, vous pouvez modifier les conditions initiales, la valeur de delta_x, le nombre d’itérations.",
+    "crumbs": [
+      "Time Series",
+      "Résolution numérique d'une équation différentielle"
+    ]
   }
 ]

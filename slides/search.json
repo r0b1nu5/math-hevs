@@ -39,14 +39,14 @@
     "href": "ts/week01/slides.html#acquisition---time-step",
     "title": "Applied Statistics: Time Series",
     "section": "Acquisition - Time step",
-    "text": "Acquisition - Time step\n“Read” and “write” implies a gap between two consecutive values.\nThe time step should be:\n\nas large as possible…\nas small as necessary.\nExample: Recording sounds requires \\(20\\,000\\) samples per second, i.e., \\(20 {\\rm kHz}\\).\n\nNotation: \\(\\delta_t\\)\nUnit: second"
+    "text": "Acquisition - Time step\n“Read” and “write” implies a gap between two consecutive values.\nThe time step should be:\n\nas large as possible…\nas small as necessary.\n\nExample: Recording sounds requires \\(20\\,000\\) samples per second, i.e., \\(20 {\\rm kHz}\\).\nNotation: \\(\\delta_t\\)\nUnit: second"
   },
   {
     "objectID": "ts/week01/slides.html#acquisition---recording-time",
     "href": "ts/week01/slides.html#acquisition---recording-time",
     "title": "Applied Statistics: Time Series",
     "section": "Acquisition - Recording time",
-    "text": "Acquisition - Recording time\nWe cannot record for ever…\nThe recording time should be:\n\nas short as possible…\nas long as necessary.\nExample: Recording a sound of less that \\(0.05 {\\rm s}\\), soudns at \\(20 {\\rm Hz}\\) cannot be heard.\n\nNotation: \\(T\\)\nUnit: second"
+    "text": "Acquisition - Recording time\nWe cannot record for ever…\nThe recording time should be:\n\nas short as possible…\nas long as necessary.\n\nExample: Recording a sound of less that \\(0.05 {\\rm s}\\), soudns at \\(20 {\\rm Hz}\\) cannot be heard.\nNotation: \\(T\\)\nUnit: second"
   },
   {
     "objectID": "ts/week01/slides.html#resampling",

@@ -207,45 +207,78 @@
   {
     "objectID": "ts/week00/index.html",
     "href": "ts/week00/index.html",
-    "title": "Résolution numérique d’une équation différentielle",
+    "title": "Week 1: Course introduction",
     "section": "",
-    "text": "Rappel sur la notion de dérivée\nCette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.\nSlides Slides PDF\nDans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). Cette méthode a l’avantage de fonctionner même lorsque l’équation différentielle est trop compliquée pour être résolue avec “papier et crayon”, mais a l’incovénient de ne donner qu’un approximation de la solution.\nConsidérons l’équation différentielle de l’exercice 2 de la série 5 : \\[\ny' = -xy^2\n\\]\nNous avons vu en Analyse 2 que la dérivée d’une fonction \\(y(x)\\) (en rouge dans la figure) en un point \\(x_0\\) donne la pente de la droite tangente à \\(y(x)\\) au point \\((x_0,y(x_0))\\) (en bleu dans la figure). Etant donné un point de départ \\((x_0,y_0)\\) pour notre fonction, la dérivée va nous informer sur la direction dans laquelle la fonction va évoluer.",
+    "text": "Course organization\nSlides Slides PDF",
     "crumbs": [
       "Time Series",
-      "Résolution numérique d'une équation différentielle"
+      "Week 1: Course introduction"
     ]
   },
   {
-    "objectID": "ts/week00/index.html#rappel-sur-la-notion-de-dérivée",
-    "href": "ts/week00/index.html#rappel-sur-la-notion-de-dérivée",
-    "title": "Résolution numérique d’une équation différentielle",
+    "objectID": "ts/week00/index.html#course-organization",
+    "href": "ts/week00/index.html#course-organization",
+    "title": "Week 1: Course introduction",
     "section": "",
-    "text": "Tangente à une courbe",
+    "text": "Day and time\nVariable throughout the semester\n\n\nOnline material\nAll material will be made available from this webpage.\n\n\nExams\nFirst exam on Novemver 10, 2026: Brief exam (most likely QCM), approx. 45 minutes.\nSecond exam on January 19, 2027: Longer exam with hands on, approx. 90 minutes.\n\n\nCourse wiki\nA course wiki will be set up. The idea is that you ceate your own list of important concepts. You fill it, I check it.",
     "crumbs": [
       "Time Series",
-      "Résolution numérique d'une équation différentielle"
+      "Week 1: Course introduction"
     ]
   },
   {
-    "objectID": "ts/week00/index.html#marche-à-suivre",
-    "href": "ts/week00/index.html#marche-à-suivre",
-    "title": "Résolution numérique d’une équation différentielle",
-    "section": "Marche à suivre",
-    "text": "Marche à suivre\nAfin de suivre la fonction définie par l’équation différentielle ci-dessus, nous allons nous placer à un point donnée (nos conditions initales) et faire de petit pas en suivant la direction indiquée par la dérivée.\nCommençons au point \\((x_0,y_0) = (1,1)\\). A ce point-là, on peut calculer la dérivée de la fonction \\(y(x)\\) à la main ou à la calculatrice, grâce à l’équation différentielle. En effet, on connaît les coordonnées \\(x\\) et \\(y\\) qui vont dans le membre de droite de l’équation, on peut donc calculer ce que vaut \\(y'\\) à ce point-là : \\[\ny' = -xy^2 = -1\\cdot 1^2 = -1\n\\]\nDonc si on se déplace d’une petit distance \\(\\delta_x = 0.1\\) le long de l’axe des \\(x\\), conformément à la figure ci-dessus, on doit se déplacer d’une distance \\(y'\\cdot\\delta_x = -1\\cdot 0.1 = -0.1\\) le long de l’axe des \\(y\\). Cela nous amène au point \\((x_1,y_1) = (1.1,0.9)\\).\nA ce point-là, on peut à nouveau calculer la dérivée \\(y'\\) grâce à l’équation différentielle.\n\n\n\n\n\n\nA nouveau, un petit déplacement de \\(\\delta_x=0.1\\) le long de l’axe des \\(x\\) induit un petit déplacement de \\(y'\\cdot\\delta_x = -0.891\\cdot 0.1 = -0.0891\\). On obtient ainsi un troisième point \\((x_2,y_2) = (1.2,0.8109)\\).\n\n\n\n\n\n\nVous pouvez répéter cette procédure pour calculer plus de points de la solution les uns après les autres : - Changez les valeurs de \\(x\\) et \\(y\\) dans la première cellule de code ci-dessus afin de calculer les valeurs suivantes. - Introduisez les valeurs obtenues pour x_new et y_new à la suite des vecteurs x_tot et y_tot dans la deuxième cellule de code afin de compléter la graphe de la fonction \\(y(x)\\).",
+    "objectID": "ts/week00/index.html#course-approximate-schedule",
+    "href": "ts/week00/index.html#course-approximate-schedule",
+    "title": "Week 1: Course introduction",
+    "section": "Course (approximate) schedule",
+    "text": "Course (approximate) schedule\n15.9.26: Intro to the course and intro to time series\n22.9.26: Recap of statistics\n29.9.26: Advanced basics\n6.10.26: Lab on time series basics\n8.10.26: Recap on vectorial geometry\n15.10.26: Fourier 1/2\n20.10.26: Fourier 2/2\n3.11.26: Lab on Fourier\n9.11.26: Recap and mock exam\n10.11.26: CC and correction\n17.11.26: Autoregressive models\n19.11.26: Moving average (recap) and ARMA models\n10.12.26: ARMA fitting\n17.12.26: Lab on ARMA\n19.1.27: Final exam",
     "crumbs": [
       "Time Series",
-      "Résolution numérique d'une équation différentielle"
+      "Week 1: Course introduction"
     ]
   },
   {
-    "objectID": "ts/week00/index.html#pour-aller-plus-loin",
-    "href": "ts/week00/index.html#pour-aller-plus-loin",
-    "title": "Résolution numérique d’une équation différentielle",
-    "section": "Pour aller plus loin",
-    "text": "Pour aller plus loin\nLa méthode ci-dessus est fastidieuse à appliquer à la main, nous allons essayer de l’automatiser. Dans le code ci-dessous, complétez les parties avec ....\n\n\n\n\n\n\nUne fois que le code ci-dessus fonctionne, vous pouvez modifier les conditions initiales, la valeur de delta_x, le nombre d’itérations.",
+    "objectID": "ts/week00/index.html#special-needs",
+    "href": "ts/week00/index.html#special-needs",
+    "title": "Week 1: Course introduction",
+    "section": "Special needs",
+    "text": "Special needs\nSome of you may need some specific arrangements for the courses and/or the exams.\nMy first suggestion is to make it official by talk to your Responsable de filière (Mme Birgit Sievert).\nIn case you need indeptendent help, you can reach out to our mediator: Laurence Laffargue-Rieder, laurence.laffargue@hevs.ch\nFinally, I strongly encourage you to tell me what I can do to help.\nAdditionnal reading: Diversité et réussite dans l’enseignement supérieur",
     "crumbs": [
       "Time Series",
-      "Résolution numérique d'une équation différentielle"
+      "Week 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "ts/week00/index.html#working-practice",
+    "href": "ts/week00/index.html#working-practice",
+    "title": "Week 1: Course introduction",
+    "section": "Working practice",
+    "text": "Working practice\nYou are now in third year and I am sure that you know how to learn. I like to recap some (of my) good practices: - Taking notes helps you stay active and attentive to the class. - Taking breaks helps you study longer. More than two hours of studying in a row is counterproductive. - Remember that studying is a social activity. Of course, you are developping new skills for your future job, but you are also making new friendships that may last for long. So again, take some breaks. - For the same amount of time dedicated to the course, speading it over a long period is much more efficient than using it all at the same time.",
+    "crumbs": [
+      "Time Series",
+      "Week 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "ts/week00/index.html#llms",
+    "href": "ts/week00/index.html#llms",
+    "title": "Week 1: Course introduction",
+    "section": "LLMs…",
+    "text": "LLMs…\nI will not tell you not to use it, but as everyone else, I will tell you to use it with care. LLMs are very strong tools for learning, but they can also dramatically deteriorate your work.\nUse LLMs as sparring partners. Talk with it, challenge it. Make sure that you understand how and why it gave an answer.\nIf the LLM only gives you the answer, then you have learned nothing.\nCheating: We have had some strong suspicions of cheating using LLMs in the past. We will be extra careful from now on.",
+    "crumbs": [
+      "Time Series",
+      "Week 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "ts/week00/index.html#contact",
+    "href": "ts/week00/index.html#contact",
+    "title": "Week 1: Course introduction",
+    "section": "Contact",
+    "text": "Contact\n\nRobin Delabays\nOffices: 21.N203 or 23.N403\nE-mail: robin.delabays@hevs.ch\nPhone: +41 58 606 86 09",
+    "crumbs": [
+      "Time Series",
+      "Week 1: Course introduction"
     ]
   },
   {

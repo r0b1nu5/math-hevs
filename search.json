@@ -284,45 +284,78 @@
   {
     "objectID": "ts/week01/index.html",
     "href": "ts/week01/index.html",
-    "title": "Résolution numérique d’une équation différentielle",
+    "title": "Introduction to time series",
     "section": "",
-    "text": "Rappel sur la notion de dérivée\nCette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.\nSlides Slides PDF\nDans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). Cette méthode a l’avantage de fonctionner même lorsque l’équation différentielle est trop compliquée pour être résolue avec “papier et crayon”, mais a l’incovénient de ne donner qu’un approximation de la solution.\nConsidérons l’équation différentielle de l’exercice 2 de la série 5 : \\[\ny' = -xy^2\n\\]\nNous avons vu en Analyse 2 que la dérivée d’une fonction \\(y(x)\\) (en rouge dans la figure) en un point \\(x_0\\) donne la pente de la droite tangente à \\(y(x)\\) au point \\((x_0,y(x_0))\\) (en bleu dans la figure). Etant donné un point de départ \\((x_0,y_0)\\) pour notre fonction, la dérivée va nous informer sur la direction dans laquelle la fonction va évoluer.",
+    "text": "Definition of time series\nAccording to you, what is a time series?\nTwo main ingredients: 1. Series: A “thing”, usually measurable, i.e., a number. 1. Time: This number changes over time.\nFormally, a time series is a sequence of values each indexed by a time step: \\[ X = (x_{t_1}, x_{t_2},...,x_{t_N})\\, ,\\] where \\(x_t\\) is the value (usually a real number) of the time series at time \\(t\\) and \\(t_1,t_2,...\\) are the time steps. Each element \\(x_{t_i}\\) of a time series is called a sample.\nIn general, there is no contraints on the time steps. But for this course, we will always consider times steps are evenly spaced. Therefore, we will skip the \\(t\\) in the indexing and just number the components of the time series: \\[ X = (x_1,x_2,...,x_N)\\, .\\] Note that we then have to specify the time of first recording and the sampling rate, i.e., the time between two consecutive samples.",
     "crumbs": [
       "Time Series",
-      "Résolution numérique d'une équation différentielle"
+      "Introduction to time series"
     ]
   },
   {
-    "objectID": "ts/week01/index.html#rappel-sur-la-notion-de-dérivée",
-    "href": "ts/week01/index.html#rappel-sur-la-notion-de-dérivée",
-    "title": "Résolution numérique d’une équation différentielle",
-    "section": "",
-    "text": "Tangente à une courbe",
+    "objectID": "ts/week01/index.html#examples-of-time-series",
+    "href": "ts/week01/index.html#examples-of-time-series",
+    "title": "Introduction to time series",
+    "section": "Examples of time series",
+    "text": "Examples of time series\n\nAny meteorological quantity, measured over time (temperature, pressure, wind speed,…)\nStock market prices\nAny quantity measured inside a bioreactor (temparature, pH,…)\nAny health constant measured on a patient (temperature, heart rate, blood pressure,…)",
     "crumbs": [
       "Time Series",
-      "Résolution numérique d'une équation différentielle"
+      "Introduction to time series"
     ]
   },
   {
-    "objectID": "ts/week01/index.html#marche-à-suivre",
-    "href": "ts/week01/index.html#marche-à-suivre",
-    "title": "Résolution numérique d’une équation différentielle",
-    "section": "Marche à suivre",
-    "text": "Marche à suivre\nAfin de suivre la fonction définie par l’équation différentielle ci-dessus, nous allons nous placer à un point donnée (nos conditions initales) et faire de petit pas en suivant la direction indiquée par la dérivée.\nCommençons au point \\((x_0,y_0) = (1,1)\\). A ce point-là, on peut calculer la dérivée de la fonction \\(y(x)\\) à la main ou à la calculatrice, grâce à l’équation différentielle. En effet, on connaît les coordonnées \\(x\\) et \\(y\\) qui vont dans le membre de droite de l’équation, on peut donc calculer ce que vaut \\(y'\\) à ce point-là : \\[\ny' = -xy^2 = -1\\cdot 1^2 = -1\n\\]\nDonc si on se déplace d’une petit distance \\(\\delta_x = 0.1\\) le long de l’axe des \\(x\\), conformément à la figure ci-dessus, on doit se déplacer d’une distance \\(y'\\cdot\\delta_x = -1\\cdot 0.1 = -0.1\\) le long de l’axe des \\(y\\). Cela nous amène au point \\((x_1,y_1) = (1.1,0.9)\\).\nA ce point-là, on peut à nouveau calculer la dérivée \\(y'\\) grâce à l’équation différentielle.\n\n\n\n\n\n\nA nouveau, un petit déplacement de \\(\\delta_x=0.1\\) le long de l’axe des \\(x\\) induit un petit déplacement de \\(y'\\cdot\\delta_x = -0.891\\cdot 0.1 = -0.0891\\). On obtient ainsi un troisième point \\((x_2,y_2) = (1.2,0.8109)\\).\n\n\n\n\n\n\nVous pouvez répéter cette procédure pour calculer plus de points de la solution les uns après les autres : - Changez les valeurs de \\(x\\) et \\(y\\) dans la première cellule de code ci-dessus afin de calculer les valeurs suivantes. - Introduisez les valeurs obtenues pour x_new et y_new à la suite des vecteurs x_tot et y_tot dans la deuxième cellule de code afin de compléter la graphe de la fonction \\(y(x)\\).",
+    "objectID": "ts/week01/index.html#acquisition",
+    "href": "ts/week01/index.html#acquisition",
+    "title": "Introduction to time series",
+    "section": "Acquisition",
+    "text": "Acquisition\n\nTime step\nThe acquisition of measurements requires the recording device to “read” the phenomenon and then “write” the recorded value. By nature, a time series cannot be continuous, because there is necessarily a gap between two consecutive values. Depending on the context, however, this gap can be made extremely small.\nIn practice, the duration of a time step, or sampling rate, should be made as small as needed for the purpose, but as large as possible to spare memory and computation.\nExample: Recording sounds requires to sample at a frequrency of approximately 20 kHz (largest audible frequency).\nActually, we need to record at twice this frequency because of aliasing.\nIn this course, the time step of a time series will be denoted as \\(\\delta_t\\), measured in seconds.\n\n\nRecording time\nDepending on the context, there is also a minimal recording time required in order to observe certain phenomena.\nExample: In sound recording, if one does not record for more than 0.05 seconds, some audible sounds may not be recorded, because the lower bound of the audible spectrum is 20 Hz, i.e., 20 oscillations per second.\nIn this course, the duration of a time series will be denoted \\(T\\), measured in seconds.",
     "crumbs": [
       "Time Series",
-      "Résolution numérique d'une équation différentielle"
+      "Introduction to time series"
     ]
   },
   {
-    "objectID": "ts/week01/index.html#pour-aller-plus-loin",
-    "href": "ts/week01/index.html#pour-aller-plus-loin",
-    "title": "Résolution numérique d’une équation différentielle",
-    "section": "Pour aller plus loin",
-    "text": "Pour aller plus loin\nLa méthode ci-dessus est fastidieuse à appliquer à la main, nous allons essayer de l’automatiser. Dans le code ci-dessous, complétez les parties avec ....\n\n\n\n\n\n\nUne fois que le code ci-dessus fonctionne, vous pouvez modifier les conditions initiales, la valeur de delta_x, le nombre d’itérations.",
+    "objectID": "ts/week01/index.html#resampling",
+    "href": "ts/week01/index.html#resampling",
+    "title": "Introduction to time series",
+    "section": "Resampling",
+    "text": "Resampling\nSometimes, the given time step of a time series is not appropriate for our purpose.\nExample: I want to study the impact of the season on temperature. \nIf the time step of my time series is at 15 minutes, this is too fine. \nGiven a fine time series, coarse graining is easy, but comes with a question. For each coarser time step, I have multiple values measured. Which one(?) should I use?",
     "crumbs": [
       "Time Series",
-      "Résolution numérique d'une équation différentielle"
+      "Introduction to time series"
+    ]
+  },
+  {
+    "objectID": "ts/week01/index.html#representing",
+    "href": "ts/week01/index.html#representing",
+    "title": "Introduction to time series",
+    "section": "Representing",
+    "text": "Representing\nThe first step in the analysis of a time series is visual inspection.\nMake sure to use an appropriate plotting tool. You need to be able to rescale, zoom in, zoom out of you time series.\nI recommend pyplot from matplotlib, which is a powerful plotting library.",
+    "crumbs": [
+      "Time Series",
+      "Introduction to time series"
+    ]
+  },
+  {
+    "objectID": "ts/week01/index.html#noise",
+    "href": "ts/week01/index.html#noise",
+    "title": "Introduction to time series",
+    "section": "Noise",
+    "text": "Noise\nExample: Measure the height of someone in milimeters.\nAny data acquisition is imperfect. Deviations of the measurements from the “real” system’s values are called noise. Noise is usually added (or substracted) from the measured values in the acquisition process.\nOne goal in time series analysis will be to mitigate the impact of noise.\nIn general, we will assume that the noise has zero mean. Therefore, the measured signal remains around the real signal.",
+    "crumbs": [
+      "Time Series",
+      "Introduction to time series"
+    ]
+  },
+  {
+    "objectID": "ts/week01/index.html#hands-on",
+    "href": "ts/week01/index.html#hands-on",
+    "title": "Introduction to time series",
+    "section": "Hands on",
+    "text": "Hands on\nTODO",
+    "crumbs": [
+      "Time Series",
+      "Introduction to time series"
     ]
   }
 ]

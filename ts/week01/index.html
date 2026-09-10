@@ -9,7 +9,7 @@
 <meta name="author" content="Robin Delabays">
 <meta name="dcterms.date" content="2026-09-10">
 
-<title>Résolution numérique d’une équation différentielle – Mathématiques HEI</title>
+<title>Introduction to time series – Mathématiques HEI</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -126,7 +126,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ts/index.html">Time Series</a></li><li class="breadcrumb-item"><a href="../../ts/week01/index.html">Résolution numérique d’une équation différentielle</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ts/index.html">Time Series</a></li><li class="breadcrumb-item"><a href="../../ts/week01/index.html">Introduction to time series</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -237,7 +237,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../ts/week01/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Résolution numérique d’une équation différentielle</span></a>
+ <span class="menu-text">Introduction to time series</span></a>
   </div>
 </li>
       </ul>
@@ -252,18 +252,26 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#rappel-sur-la-notion-de-dérivée" id="toc-rappel-sur-la-notion-de-dérivée" class="nav-link active" data-scroll-target="#rappel-sur-la-notion-de-dérivée">Rappel sur la notion de dérivée</a></li>
-  <li><a href="#marche-à-suivre" id="toc-marche-à-suivre" class="nav-link" data-scroll-target="#marche-à-suivre">Marche à suivre</a></li>
-  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  <li><a href="#definition-of-time-series" id="toc-definition-of-time-series" class="nav-link active" data-scroll-target="#definition-of-time-series">Definition of time series</a></li>
+  <li><a href="#examples-of-time-series" id="toc-examples-of-time-series" class="nav-link" data-scroll-target="#examples-of-time-series">Examples of time series</a></li>
+  <li><a href="#acquisition" id="toc-acquisition" class="nav-link" data-scroll-target="#acquisition">Acquisition</a>
+  <ul class="collapse">
+  <li><a href="#time-step" id="toc-time-step" class="nav-link" data-scroll-target="#time-step">Time step</a></li>
+  <li><a href="#recording-time" id="toc-recording-time" class="nav-link" data-scroll-target="#recording-time">Recording time</a></li>
+  </ul></li>
+  <li><a href="#resampling" id="toc-resampling" class="nav-link" data-scroll-target="#resampling">Resampling</a></li>
+  <li><a href="#representing" id="toc-representing" class="nav-link" data-scroll-target="#representing">Representing</a></li>
+  <li><a href="#noise" id="toc-noise" class="nav-link" data-scroll-target="#noise">Noise</a></li>
+  <li><a href="#hands-on" id="toc-hands-on" class="nav-link" data-scroll-target="#hands-on">Hands on</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ts/index.html">Time Series</a></li><li class="breadcrumb-item"><a href="../../ts/week01/index.html">Résolution numérique d’une équation différentielle</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ts/index.html">Time Series</a></li><li class="breadcrumb-item"><a href="../../ts/week01/index.html">Introduction to time series</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Résolution numérique d’une équation différentielle</h1>
+<h1 class="title">Introduction to time series</h1>
 </div>
 
 
@@ -292,68 +300,66 @@ window.Quarto = {
 </header>
 
 
-<p><em>Cette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.</em></p>
-<p><a href="https://r0b1nu5.github.io/math-hevs/slides/mtha1/260430/slides.html" class="btn btn-outline-primary" role="button">Slides</a> <a href="https://r0b1nu5.github.io/math-hevs/slides/mtha1/260430/slides.pdf" class="btn btn-outline-secondary" role="button">Slides PDF</a></p>
-<p>Dans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). Cette méthode a l’avantage de fonctionner même lorsque l’équation différentielle est trop compliquée pour être résolue avec “papier et crayon”, mais a l’incovénient de ne donner qu’un approximation de la solution.</p>
-<p>Considérons l’équation différentielle de l’exercice 2 de la série 5 : <span class="math display">\[
-y' = -xy^2
-\]</span></p>
-<section id="rappel-sur-la-notion-de-dérivée" class="level2">
-<h2 class="anchored" data-anchor-id="rappel-sur-la-notion-de-dérivée">Rappel sur la notion de dérivée</h2>
-<p>Nous avons vu en Analyse 2 que la dérivée d’une fonction <span class="math inline">\(y(x)\)</span> (en rouge dans la figure) en un point <span class="math inline">\(x_0\)</span> donne la pente de la droite tangente à <span class="math inline">\(y(x)\)</span> au point <span class="math inline">\((x_0,y(x_0))\)</span> (en bleu dans la figure). Etant donné un point de départ <span class="math inline">\((x_0,y_0)\)</span> pour notre fonction, la dérivée va nous informer sur la direction dans laquelle la fonction va évoluer.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="derivative.png" class="img-fluid figure-img"></p>
-<figcaption>Tangente à une courbe</figcaption>
-</figure>
-</div>
+<section id="definition-of-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="definition-of-time-series">Definition of time series</h2>
+<p>According to you, what is a time series?</p>
+<p>Two main ingredients: 1. Series: A “thing”, usually measurable, i.e., a number. 1. Time: This number changes over time.</p>
+<p>Formally, a time series is a sequence of values each indexed by a <strong>time step</strong>: <span class="math display">\[ X = (x_{t_1}, x_{t_2},...,x_{t_N})\, ,\]</span> where <span class="math inline">\(x_t\)</span> is the value (usually a real number) of the time series at time <span class="math inline">\(t\)</span> and <span class="math inline">\(t_1,t_2,...\)</span> are the time steps. Each element <span class="math inline">\(x_{t_i}\)</span> of a time series is called a <strong>sample</strong>.</p>
+<p>In general, there is no contraints on the time steps. But for this course, we will always consider times steps are evenly spaced. Therefore, we will skip the <span class="math inline">\(t\)</span> in the indexing and just number the components of the time series: <span class="math display">\[ X = (x_1,x_2,...,x_N)\, .\]</span> Note that we then have to specify the time of first recording and the <strong>sampling rate</strong>, i.e., the time between two consecutive samples.</p>
 </section>
-<section id="marche-à-suivre" class="level2">
-<h2 class="anchored" data-anchor-id="marche-à-suivre">Marche à suivre</h2>
-<p>Afin de suivre la fonction définie par l’équation différentielle ci-dessus, nous allons nous placer à un point donnée (nos conditions initales) et faire de petit pas en suivant la direction indiquée par la dérivée.</p>
-<p>Commençons au point <span class="math inline">\((x_0,y_0) = (1,1)\)</span>. A ce point-là, on peut calculer la dérivée de la fonction <span class="math inline">\(y(x)\)</span> à la main ou à la calculatrice, grâce à l’équation différentielle. En effet, on connaît les coordonnées <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> qui vont dans le membre de droite de l’équation, on peut donc calculer ce que vaut <span class="math inline">\(y'\)</span> à ce point-là : <span class="math display">\[
-y' = -xy^2 = -1\cdot 1^2 = -1
-\]</span></p>
-<p>Donc si on se déplace d’une petit distance <span class="math inline">\(\delta_x = 0.1\)</span> le long de l’axe des <span class="math inline">\(x\)</span>, conformément à la figure ci-dessus, on doit se déplacer d’une distance <span class="math inline">\(y'\cdot\delta_x = -1\cdot 0.1 = -0.1\)</span> le long de l’axe des <span class="math inline">\(y\)</span>. Cela nous amène au point <span class="math inline">\((x_1,y_1) = (1.1,0.9)\)</span>.</p>
-<p>A ce point-là, on peut à nouveau calculer la dérivée <span class="math inline">\(y'\)</span> grâce à l’équation différentielle.</p>
-<div>
-<div id="pyodide-1" class="exercise-cell">
-
-</div>
-<script type="pyodide-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IG51bXB5IGFzIG5wXG5cbmRlbHRhX3ggPSAuMVxueCA9IDEuMFxueSA9IDEuMFxuXG55cCA9IC14KnkqKjJcbnByaW50KGZcIkTDqXJpdsOpZSBkZSB5KHgpIDogeScgPSB7eXB9XCIpXG5cbnhfbmV3ID0geCArIGRlbHRhX3hcbnlfbmV3ID0geSArIHlwKmRlbHRhX3hcbnByaW50KGZcIk5vdXZlYXUgcG9pbnQgY2FsY3Vsw6kgOiAoeF9uZXcseV9uZXcpID0gKHt4X25ld30se3lfbmV3fSlcIikifQ==
-</script>
-</div>
-<p>A nouveau, un petit déplacement de <span class="math inline">\(\delta_x=0.1\)</span> le long de l’axe des <span class="math inline">\(x\)</span> induit un petit déplacement de <span class="math inline">\(y'\cdot\delta_x = -0.891\cdot 0.1 = -0.0891\)</span>. On obtient ainsi un troisième point <span class="math inline">\((x_2,y_2) = (1.2,0.8109)\)</span>.</p>
-<div>
-<div id="pyodide-2" class="exercise-cell">
-
-</div>
-<script type="pyodide-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IG1hdHBsb3RsaWIucHlwbG90IGFzIHBsdFxuXG4jIExpc3RlIGRlcyB2YWxldXJzIGNhbGN1bMOpZXNcbnhfdG90ID0gWzEsMS4xLDEuMl1cbnlfdG90ID0gWzEsLjksLjgxMDldXG5cbiMgQWZmaWNoYWdlIGRlcyBwb2ludHMgY2FsY3Vsw6lzXG5wbHQuZmlndXJlKClcbnBsdC5heGhsaW5lKDAsIGNvbG9yPSdrJylcbnBsdC5heHZsaW5lKDAsIGNvbG9yPSdrJylcbnBsdC5wbG90KHhfdG90LHlfdG90LFwiLW9cIilcbnBsdC50aXRsZShcIkFwcHJveGltYXRpb24gZGUgbGEgc29sdXRpb25cIilcbnBsdC54bGFiZWwoXCJ4XCIpXG5wbHQueWxhYmVsKFwieVwiKVxuI3BsdC5heGlzKFstNyw3LC03LDddKVxucGx0LnNob3coKSJ9
-</script>
-</div>
-<p>Vous pouvez répéter cette procédure pour calculer plus de points de la solution les uns après les autres : - Changez les valeurs de <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> dans la première cellule de code ci-dessus afin de calculer les valeurs suivantes. - Introduisez les valeurs obtenues pour <code>x_new</code> et <code>y_new</code> à la suite des vecteurs <code>x_tot</code> et <code>y_tot</code> dans la deuxième cellule de code afin de compléter la graphe de la fonction <span class="math inline">\(y(x)\)</span>.</p>
+<section id="examples-of-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="examples-of-time-series">Examples of time series</h2>
+<ul>
+<li><p>Any meteorological quantity, measured over time (temperature, pressure, wind speed,…)</p></li>
+<li><p>Stock market prices</p></li>
+<li><p>Any quantity measured inside a bioreactor (temparature, pH,…)</p></li>
+<li><p>Any health constant measured on a patient (temperature, heart rate, blood pressure,…)</p></li>
+</ul>
 </section>
-<section id="pour-aller-plus-loin" class="level2">
-<h2 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h2>
-<p>La méthode ci-dessus est fastidieuse à appliquer à la main, nous allons essayer de l’automatiser. Dans le code ci-dessous, complétez les parties avec <code>...</code>.</p>
-<div>
-<div id="pyodide-3" class="exercise-cell">
+<section id="acquisition" class="level2">
+<h2 class="anchored" data-anchor-id="acquisition">Acquisition</h2>
+<section id="time-step" class="level3">
+<h3 class="anchored" data-anchor-id="time-step">Time step</h3>
+<p>The acquisition of measurements requires the recording device to “read” the phenomenon and then “write” the recorded value. By nature, a time series cannot be continuous, because there is necessarily a gap between two consecutive values. Depending on the context, however, this gap can be made extremely small.</p>
+<p>In practice, the duration of a time step, or sampling rate, should be made as small as needed for the purpose, but as large as possible to spare memory and computation.</p>
+<pre><code>Example: Recording sounds requires to sample at a frequrency of approximately 20 kHz (largest audible frequency).
+Actually, we need to record at twice this frequency because of aliasing.</code></pre>
+<p>In this course, the time step of a time series will be denoted as <span class="math inline">\(\delta_t\)</span>, measured in seconds.</p>
+</section>
+<section id="recording-time" class="level3">
+<h3 class="anchored" data-anchor-id="recording-time">Recording time</h3>
+<p>Depending on the context, there is also a minimal recording time required in order to observe certain phenomena.</p>
+<pre><code>Example: In sound recording, if one does not record for more than 0.05 seconds, some audible sounds may not be recorded, because the lower bound of the audible spectrum is 20 Hz, i.e., 20 oscillations per second.</code></pre>
+<p>In this course, the duration of a time series will be denoted <span class="math inline">\(T\)</span>, measured in seconds.</p>
+</section>
+</section>
+<section id="resampling" class="level2">
+<h2 class="anchored" data-anchor-id="resampling">Resampling</h2>
+<p>Sometimes, the given time step of a time series is not appropriate for our purpose.</p>
+<pre><code>Example: I want to study the impact of the season on temperature. 
+If the time step of my time series is at 15 minutes, this is too fine. </code></pre>
+<p>Given a fine time series, coarse graining is easy, but comes with a question. For each coarser time step, I have multiple values measured. Which one(?) should I use?</p>
+</section>
+<section id="representing" class="level2">
+<h2 class="anchored" data-anchor-id="representing">Representing</h2>
+<p>The first step in the analysis of a time series is visual inspection.</p>
+<p>Make sure to use an appropriate plotting tool. You need to be able to rescale, zoom in, zoom out of you time series.</p>
+<p>I recommend pyplot from matplotlib, which is a powerful plotting library.</p>
+</section>
+<section id="noise" class="level2">
+<h2 class="anchored" data-anchor-id="noise">Noise</h2>
+<pre><code>Example: Measure the height of someone in milimeters.</code></pre>
+<p>Any data acquisition is imperfect. Deviations of the measurements from the “real” system’s values are called <strong>noise</strong>. Noise is usually added (or substracted) from the measured values in the acquisition process.</p>
+<p>One goal in time series analysis will be to mitigate the impact of noise.</p>
+<p>In general, we will assume that the noise has zero mean. Therefore, the measured signal remains around the real signal.</p>
+</section>
+<section id="hands-on" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on">Hands on</h2>
+<p><strong>TODO</strong></p>
 
-</div>
-<script type="pyodide-3-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBDb25kaXRpb25zIGluaXRpYWxlc1xueCA9IDFcbnkgPSAxXG5cbiMgVmVjdGV1cnMgcXVpIGNvbnRpZW5kcm9udCB0b3V0ZXMgbGVzIHZhbGV1cnMgY2FsY3Vsw6llc1xueF90b3QgPSBbeCxdXG55X3RvdCA9IFt5LF1cblxuIyBQZXRpdCBkw6lwbGFjZW1lbnQgbGUgbG9uZyBkZSBsJ2F4ZSBkZXMgeFxuZGVsdGFfeCA9IDAuMVxuXG4jIENob2lzaXNzZXogbGUgbm9tYnJlIGRlIHLDqXDDqXRpdGlvbnMgcXVlIHZvdXMgdm91bGV6IGVmZmVjdHVlclxubl9pdGVyID0gLi4uXG5cbml0ZXIgPSAwICMgT24gaW5pdGlhbGlzZSBsZSBjb21wdGV1ciBkJ2l0w6lyYXRpb25zXG5cbndoaWxlIGl0ZXIgPCBuX2l0ZXI6ICMgVGFudCBxdWUgbGUgbm9tYnJlIGQnaXTDqXJhdGlvbnMgdm91bHUgbidlc3QgcGFzIGF0dGVpbnRcbiAgICBpdGVyICs9IDEgIyBPbiBpbmNyw6ltZW50ZSBsZSBjb21wdGV1clxuXG4gICAgeXAgPSAuLi4gIyBPbiBjYWxjdWxlIGxhIGTDqXJpdsOpZVxuICAgIHhfbmV3ID0gLi4uICMgT24gY2FsY3VsZSBsYSBub3V2ZWxsZSBjb29yZG9ubsOpZSB4XG4gICAgeV9uZXcgPSAuLi4gIyBPbiBjYWxjdWxlIGxhIG5vdXZlbGxlIGNvb3Jkb25uw6llIHlcblxuICAgICMgT24gYWpvdXRlIGxlcyB2YWxldXJzIGNhbGN1bMOpZXMgcG91ciB4IGV0IHkgw6AgbGEgZmluIGRlcyB2ZWN0ZXVycyBkZSB2YWxldXJzXG4gICAgeF90b3QuYXBwZW5kKHhfbmV3KVxuICAgIHlfdG90LmFwcGVuZCh5X25ldylcblxuICAgICMgT24gbWV0IMOgIGpvdXIgbGVzIHZhbGV1ciBkZSB4IGV0IHkgYXZlYyBsZXMgbm91dmVsbGVzIHZhbGV1cnMgY2FsY3Vsw6llc1xuICAgIHggPSB4X25ld1xuICAgIHkgPSB5X25ld1xuXG4jIE9uIGFmZmljaGUgbGEgY291cmJlIGNhbGN1bMOpZVxucGx0LmZpZ3VyZSgpXG5wbHQuYXhobGluZSgwLCBjb2xvcj0naycpXG5wbHQuYXh2bGluZSgwLCBjb2xvcj0naycpXG5wbHQucGxvdCh4X3RvdCx5X3RvdCxcIi1vXCIpXG5wbHQudGl0bGUoXCJBcHByb3hpbWF0aW9uIGRlIGxhIHNvbHV0aW9uXCIpXG5wbHQueGxhYmVsKFwieFwiKVxucGx0LnlsYWJlbChcInlcIilcbiNwbHQuYXhpcyhbLTcsNywtNyw3XSlcbnBsdC5zaG93KCkifQ==
-</script>
-</div>
-<p>Une fois que le code ci-dessus fonctionne, vous pouvez modifier les conditions initiales, la valeur de <code>delta_x</code>, le nombre d’itérations.</p>
 
-
-<script type="pyodide-data">
-eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yNy4wL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIl19fQ==
-</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTMiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8zID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0zLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzMgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzMsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLTIiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8yID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzIgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzIsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzEgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJweW9kaWRlT2pzID0ge1xuICBjb25zdCB7XG4gICAgUHlvZGlkZUV2YWx1YXRvcixcbiAgICBQeW9kaWRlRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUHl0aG9uLFxuICAgIHN0YXJ0UHlvZGlkZVdvcmtlcixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoLFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gUHlvZGlkZSBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJweW9kaWRlLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICBsZXQgcHlvZGlkZVByb21pc2UgPSAoYXN5bmMgKCkgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgUHlvZGlkZWA7XG4gICAgY29uc3QgcHlvZGlkZSA9IGF3YWl0IHN0YXJ0UHlvZGlkZVdvcmtlcihkYXRhLm9wdGlvbnMpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiBtaWNyb3BpcGA7XG4gICAgYXdhaXQgcHlvZGlkZS5sb2FkUGFja2FnZShcIm1pY3JvcGlwXCIpO1xuICAgIGNvbnN0IG1pY3JvcGlwID0gYXdhaXQgcHlvZGlkZS5weWltcG9ydChcIm1pY3JvcGlwXCIpO1xuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIG1pY3JvcGlwLmluc3RhbGwocGtnKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcbiAgICBhd2FpdCBtaWNyb3BpcC5kZXN0cm95KCk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCBweW9kaWRlLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgICAgaWYgKGUuZXJybm8gIT09IDIwKSB7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICAgICAgY29uc3QgZXJyb3JUZXh0ID0gYXdhaXQgcHlvZGlkZS5fbW9kdWxlLlVURjhUb1N0cmluZyhlcnJvclRleHRQdHIpO1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHRyeSB7XG4gICAgICAgIHJldHVybiBhd2FpdCBweW9kaWRlLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgIGlmIChlLm5hbWUgIT09IFwiRXJybm9FcnJvclwiKSB0aHJvdyBlO1xuICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvciAke2UuZXJybm99IFwiJHtlcnJvclRleHR9XCIuYCk7XG4gICAgICB9XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFB5b2RpZGUgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUHl0aG9uKHB5b2RpZGUpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHB5b2RpZGU7XG4gIH0pKCkuY2F0Y2goKGVycikgPT4ge1xuICAgIHN0YXR1c1RleHQuc3R5bGUuY29sb3IgPSBcInZhcigtLWV4ZXJjaXNlLWVkaXRvci1obC1lciwgI0FEMDAwMClcIjtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gZXJyLm1lc3NhZ2U7XG4gICAgLy9pbmRpY2F0b3JDb250YWluZXIucXVlcnlTZWxlY3RvcihcIi5zcGlubmVyLWdyb3dcIikuY2xhc3NMaXN0LmFkZChcImQtbm9uZVwiKTtcbiAgICB0aHJvdyBlcnI7XG4gIH0pO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgcHlvZGlkZVByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFB5b2RpZGVFdmFsdWF0b3IocHlvZGlkZSwgY29udGV4dCk7XG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHlvZGlkZVByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gICAgcHJvY2VzcyxcbiAgfTtcbn1cbiJ9XX0=
+eyJjb250ZW50cyI6W119
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">

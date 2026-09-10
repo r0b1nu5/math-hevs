@@ -1,26 +1,105 @@
 ---
-title: "Mathématiques Appliquées 1"
-subtitle: "Test slides"
+title: "Applied Statistics: Time Series"
+subtitle: "Course introduction"
 format:
- live-revealjs:
+ live-revealjl:
   slide-number: true
   brand: ../../_brand.yml
   theme: ../../hevs.scss
   show-slide-number: all
   preview-links: auto
-  chalkboard: true
-  logo: Https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
-  footer: "MthA1"
+  chalkboard: false
+  logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
+  footer: "Time Series"
 ---
+## Course organization
 
-## Slide 1 Test
+### Day and time 
+Variable throughout the semester
 
-This is my first slide: 
-- I need to figure out
-- If this command works.
+### Online material
+All material will be made available from [this webpage](delabays.xyz/ts/index.html).
 
+### Exams
+First exam on Novemver 10, 2026: Brief exam (most likely QCM), approx. 45 minutes.
 
-## Is this a new slide?
+Second exam on January 19, 2027: Longer exam with hands on, approx. 90 minutes.
 
+### Course wiki
+A course wiki will be set up. 
+The idea is that you ceate your own list of important concepts. 
+You fill it, I check it.
+
+## Course (approximate) schedule
+**15.9.26**: Intro to the course and intro to time series
+
+**22.9.26**: Recap of statistics
+
+**29.9.26**: Advanced basics
+
+**6.10.26**: *Lab on time series basics*
+
+**8.10.26**: Recap on vectorial geometry
+
+**15.10.26**: Fourier 1/2
+
+**20.10.26**: Fourier 2/2
+
+**3.11.26**: *Lab on Fourier*
+
+**9.11.26**: Recap and mock exam
+
+**10.11.26**: CC and correction
+
+**17.11.26**: Autoregressive models
+
+**19.11.26**: Moving average (recap) and ARMA models
+
+**10.12.26**: ARMA fitting
+
+**17.12.26**: *Lab on ARMA*
+
+**19.1.27**: Final exam
+
+## Special needs
+Some of you may need some specific arrangements for the courses and/or the exams. 
+
+My first suggestion is to make it official by talk to your *Responsable de filière* (Mme Birgit Sievert). 
+
+In case you need indeptendent help, you can reach out to our mediator: Laurence Laffargue-Rieder, [laurence.laffargue@hevs.ch](mailto:laurence.laffargue@hevs.ch)
+
+Finally, I strongly encourage you to tell me what I can do to help.
+
+Additionnal reading: [Diversité et réussite dans l'enseignement supérieur](https://www.hetsl.ch/organisation/egalite-et-diversite/apprentissages-et-diversite)
+
+## Working practice
+You are now in third year and I am sure that you know how to learn.
+I like to recap some (of my) good practices: 
+- **Taking notes** helps you stay active and attentive to the class.
+- **Taking breaks** helps you study longer. 
+  More than two hours of studying in a row is counterproductive.
+- Remember that studying is a social activity. 
+  Of course, you are developping new skills for your future job, but you are also making new friendships that may last for long.
+  So again, take some breaks.
+- For the same amount of time dedicated to the course, speading it over a long period is much more efficient than using it all at the same time.
+
+## LLMs...
+I will not tell you not to use it, but as everyone else, I will tell you to use it with care.
+LLMs are very strong tools for learning, but they can also dramatically deteriorate your work. 
+
+Use LLMs as sparring partners. 
+Talk with it, challenge it. 
+Make sure that you understand how and why it gave an answer. 
+
+If the LLM only gives you the answer, then you have learned nothing. 
+
+**Cheating:** We have had some strong suspicions of cheating using LLMs in the past. 
+We will be extra careful from now on.
+
+## Contact
+- Robin Delabays
+- Offices: 21.N203 or 23.N403
+- E-mail: [robin.delabays@hevs.ch](mailto:robin.delabays@hevs.ch)
+- Phone: +41 58 606 86 09
 
 

@@ -1,131 +1,96 @@
-# Résolution numérique d'une équation différentielle {.unnumbered}
+# Course introduction {.unnumbered}
 
-*Cette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.*
+[Slides]({{< var base_url>}}slides/ts/week00/slides.html){.btn .btn-outline-primary .btn role="button"} 
+[Slides PDF]({{< var base_url>}}slides/ts/week00/slides.pdf){.btn .btn-outline-secondary .btn role="button"} 
 
-[Slides]({{< var base_url>}}slides/mtha1/260430/slides.html){.btn .btn-outline-primary .btn role="button"} 
-[Slides PDF]({{< var base_url>}}slides/mtha1/260430/slides.pdf){.btn .btn-outline-secondary .btn role="button"} 
+## Course organization
 
-Dans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). 
-Cette méthode a l'avantage de fonctionner même lorsque l'équation différentielle est trop compliquée pour être résolue avec "papier et crayon", mais a l'incovénient de ne donner qu'un approximation de la solution.
+### Day and time 
+Variable throughout the semester
 
-Considérons l'équation différentielle de l'exercice 2 de la série 5 :
-$$
-y' = -xy^2
-$$
+### Online material
+All material will be made available from [this webpage](delabays.xyz/ts/index.html).
 
-## Rappel sur la notion de dérivée
-Nous avons vu en Analyse 2 que la dérivée d'une fonction $y(x)$ (en rouge dans la figure) en un point $x_0$ donne la pente de la droite tangente à $y(x)$ au point $(x_0,y(x_0))$ (en bleu dans la figure).
-Etant donné un point de départ $(x_0,y_0)$ pour notre fonction, la dérivée va nous informer sur la direction dans laquelle la fonction va évoluer.
+### Exams
+First exam on Novemver 10, 2026: Brief exam (most likely QCM), approx. 45 minutes.
 
-![Tangente à une courbe](derivative.png)
+Second exam on January 19, 2027: Longer exam with hands on, approx. 90 minutes.
 
+### Course wiki
+A course wiki will be set up. 
+The idea is that you ceate your own list of important concepts. 
+You fill it, I check it.
 
-## Marche à suivre
-Afin de suivre la fonction définie par l'équation différentielle ci-dessus, nous allons nous placer à un point donnée (nos conditions initales) et faire de petit pas en suivant la direction indiquée par la dérivée.
+## Course (approximate) schedule
+**15.9.26**: Intro to the course and intro to time series
 
-Commençons au point $(x_0,y_0) = (1,1)$. 
-A ce point-là, on peut calculer la dérivée de la fonction $y(x)$ à la main ou à la calculatrice, grâce à l'équation différentielle. 
-En effet, on connaît les coordonnées $x$ et $y$ qui vont dans le membre de droite de l'équation, on peut donc calculer ce que vaut $y'$ à ce point-là :
-$$
-y' = -xy^2 = -1\cdot 1^2 = -1
-$$
+**22.9.26**: Recap of statistics
 
-Donc si on se déplace d'une petit distance $\delta_x = 0.1$ le long de l'axe des $x$, conformément à la figure ci-dessus, on doit se déplacer d'une distance $y'\cdot\delta_x = -1\cdot 0.1 = -0.1$ le long de l'axe des $y$. 
-Cela nous amène au point $(x_1,y_1) = (1.1,0.9)$. 
+**29.9.26**: Advanced basics
 
-A ce point-là, on peut à nouveau calculer la dérivée $y'$ grâce à l'équation différentielle.
+**6.10.26**: *Lab on time series basics*
 
-```{pyodide}
-import numpy as np
+**8.10.26**: Recap on vectorial geometry
 
-delta_x = .1
-x = 1.0
-y = 1.0
+**15.10.26**: Fourier 1/2
 
-yp = -x*y**2
-print(f"Dérivée de y(x) : y' = {yp}")
+**20.10.26**: Fourier 2/2
 
-x_new = x + delta_x
-y_new = y + yp*delta_x
-print(f"Nouveau point calculé : (x_new,y_new) = ({x_new},{y_new})")
-```
+**3.11.26**: *Lab on Fourier*
 
-A nouveau, un petit déplacement de $\delta_x=0.1$ le long de l'axe des $x$ induit un petit déplacement de $y'\cdot\delta_x = -0.891\cdot 0.1 = -0.0891$.
-On obtient ainsi un troisième point $(x_2,y_2) = (1.2,0.8109)$.
+**9.11.26**: Recap and mock exam
 
-```{pyodide}
-import matplotlib.pyplot as plt
+**10.11.26**: CC and correction
 
-# Liste des valeurs calculées
-x_tot = [1,1.1,1.2]
-y_tot = [1,.9,.8109]
+**17.11.26**: Autoregressive models
 
-# Affichage des points calculés
-plt.figure()
-plt.axhline(0, color='k')
-plt.axvline(0, color='k')
-plt.plot(x_tot,y_tot,"-o")
-plt.title("Approximation de la solution")
-plt.xlabel("x")
-plt.ylabel("y")
-#plt.axis([-7,7,-7,7])
-plt.show()
-```
+**19.11.26**: Moving average (recap) and ARMA models
 
-Vous pouvez répéter cette procédure pour calculer plus de points de la solution les uns après les autres : 
-- Changez les valeurs de $x$ et $y$ dans la première cellule de code ci-dessus afin de calculer les valeurs suivantes.
-- Introduisez les valeurs obtenues pour `x_new` et `y_new` à la suite des vecteurs `x_tot` et `y_tot` dans la deuxième cellule de code afin de compléter la graphe de la fonction $y(x)$. 
+**10.12.26**: ARMA fitting
 
-## Pour aller plus loin
-La méthode ci-dessus est fastidieuse à appliquer à la main, nous allons essayer de l'automatiser.
-Dans le code ci-dessous, complétez les parties avec `...`.
+**17.12.26**: *Lab on ARMA*
 
-```{pyodide}
-# Conditions initiales
-x = 1
-y = 1
+**19.1.27**: Final exam
 
-# Vecteurs qui contiendront toutes les valeurs calculées
-x_tot = [x,]
-y_tot = [y,]
+## Special needs
+Some of you may need some specific arrangements for the courses and/or the exams. 
 
-# Petit déplacement le long de l'axe des x
-delta_x = 0.1
+My first suggestion is to make it official by talk to your *Responsable de filière* (Mme Birgit Sievert). 
 
-# Choisissez le nombre de répétitions que vous voulez effectuer
-n_iter = ...
+In case you need indeptendent help, you can reach out to our mediator: Laurence Laffargue-Rieder, [laurence.laffargue@hevs.ch](mailto:laurence.laffargue@hevs.ch)
 
-iter = 0 # On initialise le compteur d'itérations
+Finally, I strongly encourage you to tell me what I can do to help.
 
-while iter < n_iter: # Tant que le nombre d'itérations voulu n'est pas atteint
-	iter += 1 # On incrémente le compteur
+Additionnal reading: [Diversité et réussite dans l'enseignement supérieur](https://www.hetsl.ch/organisation/egalite-et-diversite/apprentissages-et-diversite)
 
-	yp = ... # On calcule la dérivée
-	x_new = ... # On calcule la nouvelle coordonnée x
-	y_new = ... # On calcule la nouvelle coordonnée y
+## Working practice
+You are now in third year and I am sure that you know how to learn.
+I like to recap some (of my) good practices: 
+- **Taking notes** helps you stay active and attentive to the class.
+- **Taking breaks** helps you study longer. 
+  More than two hours of studying in a row is counterproductive.
+- Remember that studying is a social activity. 
+  Of course, you are developping new skills for your future job, but you are also making new friendships that may last for long.
+  So again, take some breaks.
+- For the same amount of time dedicated to the course, speading it over a long period is much more efficient than using it all at the same time.
 
-	# On ajoute les valeurs calculées pour x et y à la fin des vecteurs de valeurs
-	x_tot.append(x_new)
-	y_tot.append(y_new)
+## LLMs...
+I will not tell you not to use it, but as everyone else, I will tell you to use it with care.
+LLMs are very strong tools for learning, but they can also dramatically deteriorate your work. 
 
-	# On met à jour les valeur de x et y avec les nouvelles valeurs calculées
-	x = x_new
-	y = y_new
+Use LLMs as sparring partners. 
+Talk with it, challenge it. 
+Make sure that you understand how and why it gave an answer. 
 
-# On affiche la courbe calculée
-plt.figure()
-plt.axhline(0, color='k')
-plt.axvline(0, color='k')
-plt.plot(x_tot,y_tot,"-o")
-plt.title("Approximation de la solution")
-plt.xlabel("x")
-plt.ylabel("y")
-#plt.axis([-7,7,-7,7])
-plt.show()
-```
+If the LLM only gives you the answer, then you have learned nothing. 
 
-Une fois que le code ci-dessus fonctionne, vous pouvez modifier les conditions initiales, la valeur de `delta_x`, le nombre d'itérations.
+**Cheating:** We have had some strong suspicions of cheating using LLMs in the past. 
+We will be extra careful from now on.
 
-
+## Contact
+- Robin Delabays
+- Offices: 21.N203 or 23.N403
+- E-mail: [robin.delabays@hevs.ch](mailto:robin.delabays@hevs.ch)
+- Phone: +41 58 606 86 09
 
 

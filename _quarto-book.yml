@@ -19,6 +19,12 @@ book:
         - an3/index.qmd
         - an3/260108/index.qmd
         - an3/251104/index.qmd
+    - part: "Time Series"
+      chapters:
+        - ts/index.qmd
+        - ts/week00/index.qmd
+        - ts/week01/index.qmd
+
 format:
   live-html:
     theme: cosmo

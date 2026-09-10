@@ -8,8 +8,8 @@ format:
   theme: ../../hevs.scss
   show-slide-number: all
   preview-links: auto
-  chalkboard: false
-  logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
+  chalkboard: true
+  logo: Https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
   footer: "Time Series"
 ---
 

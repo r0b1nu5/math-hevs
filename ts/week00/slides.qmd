@@ -10,14 +10,14 @@ format:
   preview-links: auto
   chalkboard: true
   logo: Https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
-  footer: "[Time Series](https://www.delabays.xyz/ts.index.html)"
+  footer: "[Time Series](https://www.delabays.xyz/ts/)"
 ---
 
 ## Course organization
 
 **Day and time:** Variable throughout the semester.
 
-**Online material:** All material will be made available from [this webpage](https://www.delabays.xyz/ts/index.html).
+**Online material:** All material will be made available from [this webpage](https://www.delabays.xyz/ts/).
 
 **First exam:** Novemver 10, 2026: Brief exam (most likely QCM), approx. 45 minutes.
 

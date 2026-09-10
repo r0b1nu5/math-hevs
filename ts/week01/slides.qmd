@@ -69,7 +69,8 @@ The time step should be:
 
 - as small as necessary.
     
-    Example: Recording sounds requires $20\,000$ samples per second, i.e., $20 {\rm kHz}$.
+**Example:**
+*Recording sounds requires $20\,000$ samples per second, i.e., $20 {\rm kHz}$.*
 
 **Notation:** $\delta_t$
 
@@ -85,7 +86,8 @@ The recording time should be:
 
 - as long as necessary.
 
-    Example: Recording a sound of less that $0.05 {\rm s}$, soudns at $20 {\rm Hz}$ cannot be heard.
+**Example:**
+*Recording a sound of less that $0.05 {\rm s}$, soudns at $20 {\rm Hz}$ cannot be heard.*
 
 **Notation:** $T$
 
@@ -103,11 +105,13 @@ Recommendation: pyplot from matplotlib.
 
 ## Noise
 
-	Example: Measure the height of someone in millimeters.
+**Example:** 
+*Measure the height of someone in millimeters.*
 
 ## Noise
 
-	Example: Measure the height of someone in millimeters.
+**Example:**
+*Measure the height of someone in millimeters.*
 
 Data acquisition is imperfect. 
 
@@ -119,12 +123,5 @@ Deviations from the "real" value are the **noise**.
 ## Hands on
 
 **TODO**
-
-
-
-
-
-
-
 
 

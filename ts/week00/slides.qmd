@@ -10,7 +10,7 @@ format:
   preview-links: auto
   chalkboard: true
   logo: Https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
-  footer: "Time Series"
+  footer: "[Time Series](https://www.delabays.xyz/ts.index.html)"
 ---
 
 ## Course organization
@@ -24,7 +24,6 @@ format:
 **Second exam:** January 19, 2027: Longer exam with hands on, approx. 90 minutes.
 
 **Course wiki:** A course wiki will be set up. 
-The idea is that you ceate your own list of important concepts. 
 You fill it, I check it.
 
 ## Course (approximate) schedule

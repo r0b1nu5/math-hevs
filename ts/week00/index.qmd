@@ -9,7 +9,7 @@
 Variable throughout the semester
 
 ### Online material
-All material will be made available from [this webpage](delabays.xyz/ts/index.html).
+All material will be made available from [this webpage](https://www.delabays.xyz/ts/index.html).
 
 ### Exams
 First exam on Novemver 10, 2026: Brief exam (most likely QCM), approx. 45 minutes.
@@ -55,24 +55,29 @@ You fill it, I check it.
 ## Special needs
 Some of you may need some specific arrangements for the courses and/or the exams. 
 
-My first suggestion is to make it official by talk to your *Responsable de filière* (Mme Birgit Sievert). 
+1. My first suggestion is to make it official by talking to your *Responsable de filière* (Mme Birgit Sievert). 
 
-In case you need indeptendent help, you can reach out to our mediator: Laurence Laffargue-Rieder, [laurence.laffargue@hevs.ch](mailto:laurence.laffargue@hevs.ch)
+1. In case you need indeptendent help, you can reach out to our mediator: Laurence Laffargue-Rieder, [laurence.laffargue@hevs.ch](mailto:laurence.laffargue@hevs.ch)
 
-Finally, I strongly encourage you to tell me what I can do to help.
+1. Finally, I strongly encourage you to tell me what I can do to help.
 
 Additionnal reading: [Diversité et réussite dans l'enseignement supérieur](https://www.hetsl.ch/organisation/egalite-et-diversite/apprentissages-et-diversite)
 
 ## Working practice
 You are now in third year and I am sure that you know how to learn.
 I like to recap some (of my) good practices: 
+
 - **Taking notes** helps you stay active and attentive to the class.
+
 - **Taking breaks** helps you study longer. 
   More than two hours of studying in a row is counterproductive.
-- Remember that studying is a social activity. 
+
+- Remember that studying is a **social activity**. 
   Of course, you are developping new skills for your future job, but you are also making new friendships that may last for long.
   So again, take some breaks.
+
 - For the same amount of time dedicated to the course, speading it over a long period is much more efficient than using it all at the same time.
+  **Regularity** is the key!
 
 ## LLMs...
 I will not tell you not to use it, but as everyone else, I will tell you to use it with care.

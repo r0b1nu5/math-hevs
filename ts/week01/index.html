@@ -9,7 +9,7 @@
 <meta name="author" content="Robin Delabays">
 <meta name="dcterms.date" content="2026-09-10">
 
-<title>Introduction to time series – Mathématiques HEI</title>
+<title>Week 1: Introduction to time series – Mathématiques HEI</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -126,7 +126,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ts/index.html">Time Series</a></li><li class="breadcrumb-item"><a href="../../ts/week01/index.html">Introduction to time series</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ts/index.html">Time Series</a></li><li class="breadcrumb-item"><a href="../../ts/week01/index.html">Week 1: Introduction to time series</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -237,7 +237,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../ts/week01/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction to time series</span></a>
+ <span class="menu-text">Week 1: Introduction to time series</span></a>
   </div>
 </li>
       </ul>
@@ -269,9 +269,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ts/index.html">Time Series</a></li><li class="breadcrumb-item"><a href="../../ts/week01/index.html">Introduction to time series</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ts/index.html">Time Series</a></li><li class="breadcrumb-item"><a href="../../ts/week01/index.html">Week 1: Introduction to time series</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introduction to time series</h1>
+<h1 class="title">Week 1: Introduction to time series</h1>
 </div>
 
 
@@ -300,12 +300,14 @@ window.Quarto = {
 </header>
 
 
+<p><a href="https://r0b1nu5.github.io/math-hevs/slides/ts/week01/slides.html" class="btn btn-outline-primary" role="button">Slides</a> <a href="https://r0b1nu5.github.io/math-hevs/slides/ts/week01/slides.pdf" class="btn btn-outline-secondary" role="button">Slides PDF</a></p>
 <section id="definition-of-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="definition-of-time-series">Definition of time series</h2>
 <p>According to you, what is a time series?</p>
 <p>Two main ingredients: 1. Series: A “thing”, usually measurable, i.e., a number. 1. Time: This number changes over time.</p>
 <p>Formally, a time series is a sequence of values each indexed by a <strong>time step</strong>: <span class="math display">\[ X = (x_{t_1}, x_{t_2},...,x_{t_N})\, ,\]</span> where <span class="math inline">\(x_t\)</span> is the value (usually a real number) of the time series at time <span class="math inline">\(t\)</span> and <span class="math inline">\(t_1,t_2,...\)</span> are the time steps. Each element <span class="math inline">\(x_{t_i}\)</span> of a time series is called a <strong>sample</strong>.</p>
 <p>In general, there is no contraints on the time steps. But for this course, we will always consider times steps are evenly spaced. Therefore, we will skip the <span class="math inline">\(t\)</span> in the indexing and just number the components of the time series: <span class="math display">\[ X = (x_1,x_2,...,x_N)\, .\]</span> Note that we then have to specify the time of first recording and the <strong>sampling rate</strong>, i.e., the time between two consecutive samples.</p>
+<p><strong>TODO: Add a figure here.</strong></p>
 </section>
 <section id="examples-of-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="examples-of-time-series">Examples of time series</h2>
@@ -315,6 +317,7 @@ window.Quarto = {
 <li><p>Any quantity measured inside a bioreactor (temparature, pH,…)</p></li>
 <li><p>Any health constant measured on a patient (temperature, heart rate, blood pressure,…)</p></li>
 </ul>
+<p><strong>TODO: Figures?</strong></p>
 </section>
 <section id="acquisition" class="level2">
 <h2 class="anchored" data-anchor-id="acquisition">Acquisition</h2>
@@ -322,8 +325,8 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="time-step">Time step</h3>
 <p>The acquisition of measurements requires the recording device to “read” the phenomenon and then “write” the recorded value. By nature, a time series cannot be continuous, because there is necessarily a gap between two consecutive values. Depending on the context, however, this gap can be made extremely small.</p>
 <p>In practice, the duration of a time step, or sampling rate, should be made as small as needed for the purpose, but as large as possible to spare memory and computation.</p>
-<pre><code>Example: Recording sounds requires to sample at a frequrency of approximately 20 kHz (largest audible frequency).
-Actually, we need to record at twice this frequency because of aliasing.</code></pre>
+<pre><code>Example: Recording sounds requires to sample at a frequency of approximately 20 kHz (largest audible frequency).
+Actually, we need to record at twice this frequency because of aliasing (see later, Nyquist's Theorem).</code></pre>
 <p>In this course, the time step of a time series will be denoted as <span class="math inline">\(\delta_t\)</span>, measured in seconds.</p>
 </section>
 <section id="recording-time" class="level3">
@@ -339,6 +342,7 @@ Actually, we need to record at twice this frequency because of aliasing.</code><
 <pre><code>Example: I want to study the impact of the season on temperature. 
 If the time step of my time series is at 15 minutes, this is too fine. </code></pre>
 <p>Given a fine time series, coarse graining is easy, but comes with a question. For each coarser time step, I have multiple values measured. Which one(?) should I use?</p>
+<p><strong>TODO: Have illustrating figures</strong></p>
 </section>
 <section id="representing" class="level2">
 <h2 class="anchored" data-anchor-id="representing">Representing</h2>

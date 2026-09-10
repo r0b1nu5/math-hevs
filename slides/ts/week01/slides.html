@@ -156,9 +156,35 @@ Robin Delabays
 <section id="definition-of-time-series" class="slide level2">
 <h2>Definition of time series</h2>
 <p>According to you, what is a time series?</p>
-<p>Two main ingredients: 1. Series: A “thing”, usually measurable, i.e., a number. 1. Time: This number changes over time.</p>
-<p>Formally, a time series is a sequence of values each indexed by a <strong>time step</strong>: <span class="math display">\[ X = (x_{t_1}, x_{t_2},...,x_{t_N})\, ,\]</span> where <span class="math inline">\(x_t\)</span> is the value (usually a real number) of the time series at time <span class="math inline">\(t\)</span> and <span class="math inline">\(t_1,t_2,...\)</span> are the time steps. Each element <span class="math inline">\(x_{t_i}\)</span> of a time series is called a <strong>sample</strong>.</p>
-<p>In general, there is no contraints on the time steps. But for this course, we will always consider times steps are evenly spaced. Therefore, we will skip the <span class="math inline">\(t\)</span> in the indexing and just number the components of the time series: <span class="math display">\[ X = (x_1,x_2,...,x_N)\, .\]</span> Note that we then have to specify the time of first recording and the <strong>sampling rate</strong>, i.e., the time between two consecutive samples.</p>
+</section>
+<section id="definition-of-time-series-1" class="slide level2">
+<h2>Definition of time series</h2>
+<p>According to you, what is a time series?</p>
+<p>Two main ingredients:</p>
+<ol type="1">
+<li><p><strong>Series:</strong> A “thing”, usually measurable, i.e., a number.</p></li>
+<li><p><strong>Time:</strong> This number changes over time.</p></li>
+</ol>
+</section>
+<section id="definition-of-time-series-2" class="slide level2">
+<h2>Definition of time series</h2>
+<p>Formally, a time series is <em>a sequence of values each indexed by a time step</em>: <span class="math display">\[ X = (x_{t_1}, x_{t_2},...,x_{t_N})\, ,\]</span></p>
+<ul>
+<li><p><span class="math inline">\(x_t\)</span>: the value at time <span class="math inline">\(t\)</span></p></li>
+<li><p><span class="math inline">\(t_1,t_2,...\)</span> are the <strong>time steps</strong>.</p></li>
+</ul>
+<p>Each element <span class="math inline">\(x_{t_i}\)</span> of a time series is called a <strong>sample</strong>.</p>
+</section>
+<section id="time-steps" class="slide level2">
+<h2>Time steps</h2>
+<p>For this course, we consider evenly spaced times steps.</p>
+<p>Therefore, it is enough to enumerate the components: <span class="math display">\[ X = (x_1,x_2,...,x_N)\, .\]</span></p>
+<p>But we have to specify:</p>
+<ul>
+<li><p>the time of first recording <span class="math inline">\(t_0\)</span></p></li>
+<li><p>the <strong>sampling rate</strong>, i.e., the time between two consecutive samples.</p></li>
+</ul>
+<p><strong>TODO: Add a figure here.</strong></p>
 </section>
 <section id="examples-of-time-series" class="slide level2">
 <h2>Examples of time series</h2>
@@ -168,39 +194,51 @@ Robin Delabays
 <li><p>Any quantity measured inside a bioreactor (temparature, pH,…)</p></li>
 <li><p>Any health constant measured on a patient (temperature, heart rate, blood pressure,…)</p></li>
 </ul>
+<p><strong>TODO: Figures?</strong></p>
 </section>
-<section id="acquisition" class="slide level2">
-<h2>Acquisition</h2>
-<h3 id="time-step">Time step</h3>
-<p>The acquisition of measurements requires the recording device to “read” the phenomenon and then “write” the recorded value. By nature, a time series cannot be continuous, because there is necessarily a gap between two consecutive values. Depending on the context, however, this gap can be made extremely small.</p>
-<p>In practice, the duration of a time step, or sampling rate, should be made as small as needed for the purpose, but as large as possible to spare memory and computation.</p>
-<pre><code>Example: Recording sounds requires to sample at a frequrency of approximately 20 kHz (largest audible frequency).
-Actually, we need to record at twice this frequency because of aliasing.</code></pre>
-<p>In this course, the time step of a time series will be denoted as <span class="math inline">\(\delta_t\)</span>, measured in seconds.</p>
-<h3 id="recording-time">Recording time</h3>
-<p>Depending on the context, there is also a minimal recording time required in order to observe certain phenomena.</p>
-<pre><code>Example: In sound recording, if one does not record for more than 0.05 seconds, some audible sounds may not be recorded, because the lower bound of the audible spectrum is 20 Hz, i.e., 20 oscillations per second.</code></pre>
-<p>In this course, the duration of a time series will be denoted <span class="math inline">\(T\)</span>, measured in seconds.</p>
+<section id="acquisition---time-step" class="slide level2">
+<h2>Acquisition - Time step</h2>
+<p>“Read” and “write” implies a gap between two consecutive values.</p>
+<p>The time step should be:</p>
+<ul>
+<li><p>as large as possible…</p></li>
+<li><p>as small as necessary.</p>
+<p>Example: Recording sounds requires <span class="math inline">\(20\,000\)</span> samples per second, i.e., <span class="math inline">\(20 {\rm kHz}\)</span>.</p></li>
+</ul>
+<p><strong>Notation:</strong> <span class="math inline">\(\delta_t\)</span></p>
+<p><strong>Unit:</strong> second</p>
+</section>
+<section id="acquisition---recording-time" class="slide level2">
+<h2>Acquisition - Recording time</h2>
+<p>We cannot record for ever…</p>
+<p>The recording time should be:</p>
+<ul>
+<li><p>as short as possible…</p></li>
+<li><p>as long as necessary.</p>
+<p>Example: Recording a sound of less that <span class="math inline">\(0.05 {\rm s}\)</span>, soudns at <span class="math inline">\(20 {\rm Hz}\)</span> cannot be heard.</p></li>
+</ul>
+<p><strong>Notation:</strong> <span class="math inline">\(T\)</span></p>
+<p><strong>Unit:</strong> second</p>
 </section>
 <section id="resampling" class="slide level2">
 <h2>Resampling</h2>
-<p>Sometimes, the given time step of a time series is not appropriate for our purpose.</p>
-<pre><code>Example: I want to study the impact of the season on temperature. 
-If the time step of my time series is at 15 minutes, this is too fine. </code></pre>
-<p>Given a fine time series, coarse graining is easy, but comes with a question. For each coarser time step, I have multiple values measured. Which one(?) should I use?</p>
+<p><strong>TODO: Do it on figures.</strong></p>
 </section>
 <section id="representing" class="slide level2">
 <h2>Representing</h2>
-<p>The first step in the analysis of a time series is visual inspection.</p>
-<p>Make sure to use an appropriate plotting tool. You need to be able to rescale, zoom in, zoom out of you time series.</p>
-<p>I recommend pyplot from matplotlib, which is a powerful plotting library.</p>
+<p>Recommendation: pyplot from matplotlib.</p>
+<p><strong>TODO: Make some code.</strong></p>
 </section>
 <section id="noise" class="slide level2">
 <h2>Noise</h2>
-<pre><code>Example: Measure the height of someone in milimeters.</code></pre>
-<p>Any data acquisition is imperfect. Deviations of the measurements from the “real” system’s values are called <strong>noise</strong>. Noise is usually added (or substracted) from the measured values in the acquisition process.</p>
-<p>One goal in time series analysis will be to mitigate the impact of noise.</p>
-<p>In general, we will assume that the noise has zero mean. Therefore, the measured signal remains around the real signal.</p>
+<pre><code>Example: Measure the height of someone in millimeters.</code></pre>
+</section>
+<section id="noise-1" class="slide level2">
+<h2>Noise</h2>
+<pre><code>Example: Measure the height of someone in millimeters.</code></pre>
+<p>Data acquisition is imperfect.</p>
+<p>Deviations from the “real” value are the <strong>noise</strong>.</p>
+<p><strong>Goal:</strong> Mitigate the effect of noise.</p>
 </section>
 <section id="hands-on" class="slide level2">
 <h2>Hands on</h2>
@@ -226,7 +264,7 @@ W10=
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="Https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://www.delabays.xyz/math-hevs/ts/">Time Series</a></p>
+<p><a href="https://www.delabays.xyz/math-hevs/ts/week01/">Time Series</a></p>
 </div>
 </div></div>
 

@@ -10,7 +10,7 @@ format:
   preview-links: auto
   chalkboard: true
   logo: Https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
-  footer: "[Time Series](https://www.delabays.xyz/math-hevs/ts/)"
+  footer: "[Time Series](https://www.delabays.xyz/math-hevs/ts/week00/)"
 ---
 
 ## Course organization

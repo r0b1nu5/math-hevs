@@ -10,26 +10,44 @@ format:
   preview-links: auto
   chalkboard: true
   logo: Https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
-  footer: "[Time Series](https://www.delabays.xyz/math-hevs/ts/)"
+  footer: "[Time Series](https://www.delabays.xyz/math-hevs/ts/week01/)"
 ---
 
 ## Definition of time series
 According to you, what is a time series?
 
-Two main ingredients:
-1. Series: A "thing", usually measurable, i.e., a number.
-1. Time: This number changes over time.
+## Definition of time series
+According to you, what is a time series?
 
-Formally, a time series is a sequence of values each indexed by a **time step**:
+Two main ingredients:
+
+1. **Series:** A "thing", usually measurable, i.e., a number.
+
+1. **Time:** This number changes over time.
+
+## Definition of time series
+Formally, a time series is *a sequence of values each indexed by a time step*:
 $$ X = (x_{t_1}, x_{t_2},...,x_{t_N})\, ,$$
-where $x_t$ is the value (usually a real number) of the time series at time $t$ and $t_1,t_2,...$ are the time steps. 
+
+- $x_t$: the value at time $t$
+
+- $t_1,t_2,...$ are the **time steps**. 
+
 Each element $x_{t_i}$ of a time series is called a **sample**.
 
-In general, there is no contraints on the time steps. 
-But for this course, we will always consider times steps are evenly spaced. 
-Therefore, we will skip the $t$ in the indexing and just number the components of the time series:
+## Time steps
+For this course, we consider evenly spaced times steps.
+
+Therefore, it is enough to enumerate the components:
 $$ X = (x_1,x_2,...,x_N)\, .$$
-Note that we then have to specify the time of first recording and the **sampling rate**, i.e., the time between two consecutive samples.
+
+But we have to specify:
+
+- the time of first recording $t_0$
+
+- the **sampling rate**, i.e., the time between two consecutive samples.
+
+**TODO: Add a figure here.**
 
 ## Examples of time series
 - Any meteorological quantity, measured over time (temperature, pressure, wind speed,...)
@@ -40,58 +58,62 @@ Note that we then have to specify the time of first recording and the **sampling
 
 - Any health constant measured on a patient (temperature, heart rate, blood pressure,...)
 
-## Acquisition
+**TODO: Figures?**
 
-### Time step
-The acquisition of measurements requires the recording device to "read" the phenomenon and then "write" the recorded value.
-By nature, a time series cannot be continuous, because there is necessarily a gap between two consecutive values. 
-Depending on the context, however, this gap can be made extremely small.
+## Acquisition - Time step
+"Read" and "write" implies a gap between two consecutive values. 
 
-In practice, the duration of a time step, or sampling rate, should be made as small as needed for the purpose, but as large as possible to spare memory and computation.
+The time step should be: 
 
-    Example: Recording sounds requires to sample at a frequrency of approximately 20 kHz (largest audible frequency).
-    Actually, we need to record at twice this frequency because of aliasing.
+- as large as possible...
 
-In this course, the time step of a time series will be denoted as $\delta_t$, measured in seconds.
+- as small as necessary.
+    
+    Example: Recording sounds requires $20\,000$ samples per second, i.e., $20 {\rm kHz}$.
 
-### Recording time
-Depending on the context, there is also a minimal recording time required in order to observe certain phenomena.
+**Notation:** $\delta_t$
 
-    Example: In sound recording, if one does not record for more than 0.05 seconds, some audible sounds may not be recorded, because the lower bound of the audible spectrum is 20 Hz, i.e., 20 oscillations per second.
+**Unit:** second
 
-In this course, the duration of a time series will be denoted $T$, measured in seconds.
+
+## Acquisition - Recording time
+We cannot record for ever...
+
+The recording time should be:
+
+- as short as possible...
+
+- as long as necessary.
+
+    Example: Recording a sound of less that $0.05 {\rm s}$, soudns at $20 {\rm Hz}$ cannot be heard.
+
+**Notation:** $T$
+
+**Unit:** second
 
 ## Resampling
-Sometimes, the given time step of a time series is not appropriate for our purpose.
-
-    Example: I want to study the impact of the season on temperature. 
-    If the time step of my time series is at 15 minutes, this is too fine. 
-
-Given a fine time series, coarse graining is easy, but comes with a question.
-For each coarser time step, I have multiple values measured. 
-Which one(?) should I use?
+**TODO: Do it on figures.**
 
 
 ## Representing
-The first step in the analysis of a time series is visual inspection. 
+Recommendation: pyplot from matplotlib.
 
-Make sure to use an appropriate plotting tool. 
-You need to be able to rescale, zoom in, zoom out of you time series. 
+**TODO: Make some code.**
 
-I recommend pyplot from matplotlib, which is a powerful plotting library. 
 
 ## Noise
 
-	Example: Measure the height of someone in milimeters.
+	Example: Measure the height of someone in millimeters.
 
-Any data acquisition is imperfect. 
-Deviations of the measurements from the "real" system's values are called **noise**. 
-Noise is usually added (or substracted) from the measured values in the acquisition process. 
+## Noise
 
-One goal in time series analysis will be to mitigate the impact of noise. 
+	Example: Measure the height of someone in millimeters.
 
-In general, we will assume that the noise has zero mean. 
-Therefore, the measured signal remains around the real signal.
+Data acquisition is imperfect. 
+
+Deviations from the "real" value are the **noise**. 
+
+**Goal:** Mitigate the effect of noise.
 
 
 ## Hands on

@@ -1,5 +1,7 @@
-# Introduction to time series {.unnumbered}
+# Week 1: Introduction to time series {.unnumbered}
 
+[Slides]({{< var base_url>}}slides/ts/week01/slides.html){.btn .btn-outline-primary .btn role="button"} 
+[Slides PDF]({{< var base_url>}}slides/ts/week01/slides.pdf){.btn .btn-outline-secondary .btn role="button"} 
 
 ## Definition of time series
 According to you, what is a time series?
@@ -19,6 +21,8 @@ Therefore, we will skip the $t$ in the indexing and just number the components o
 $$ X = (x_1,x_2,...,x_N)\, .$$
 Note that we then have to specify the time of first recording and the **sampling rate**, i.e., the time between two consecutive samples.
 
+**TODO: Add a figure here.**
+
 ## Examples of time series
 - Any meteorological quantity, measured over time (temperature, pressure, wind speed,...)
 
@@ -27,6 +31,8 @@ Note that we then have to specify the time of first recording and the **sampling
 - Any quantity measured inside a bioreactor (temparature, pH,...)
 
 - Any health constant measured on a patient (temperature, heart rate, blood pressure,...)
+
+**TODO: Figures?**
 
 ## Acquisition
 
@@ -37,8 +43,8 @@ Depending on the context, however, this gap can be made extremely small.
 
 In practice, the duration of a time step, or sampling rate, should be made as small as needed for the purpose, but as large as possible to spare memory and computation.
 
-    Example: Recording sounds requires to sample at a frequrency of approximately 20 kHz (largest audible frequency).
-    Actually, we need to record at twice this frequency because of aliasing.
+    Example: Recording sounds requires to sample at a frequency of approximately 20 kHz (largest audible frequency).
+    Actually, we need to record at twice this frequency because of aliasing (see later, Nyquist's Theorem).
 
 In this course, the time step of a time series will be denoted as $\delta_t$, measured in seconds.
 
@@ -59,6 +65,7 @@ Given a fine time series, coarse graining is easy, but comes with a question.
 For each coarser time step, I have multiple values measured. 
 Which one(?) should I use?
 
+**TODO: Have illustrating figures**
 
 ## Representing
 The first step in the analysis of a time series is visual inspection. 

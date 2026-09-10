@@ -2,7 +2,7 @@
 title: "Applied Statistics: Time Series"
 subtitle: "Course introduction"
 format:
- live-revealjl:
+ live-revealjs:
   slide-number: true
   brand: ../../_brand.yml
   theme: ../../hevs.scss
@@ -12,6 +12,7 @@ format:
   logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
   footer: "Time Series"
 ---
+
 ## Course organization
 
 ### Day and time 

@@ -8,6 +8,4 @@ Cette page regroupe une partie des documents des cours de mathématiques donnés
 ## Semestre 3
 - [Analyse 3 (SYND/ETE)](an3/index.qmd)
 
-## Semestre 5
-- [Applied Statistics: Times Series (DLS)](ts/index.qmd)
 

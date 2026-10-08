@@ -30,13 +30,79 @@
     ]
   },
   {
+    "objectID": "an3/index.html",
+    "href": "an3/index.html",
+    "title": "Table des matières",
+    "section": "",
+    "text": "Automne 2026, classe SE3fb\nLes pages qui suivent regroupe les activités en ligne du cours d’Analyse 3.",
+    "crumbs": [
+      "Analyse 3 (SA 26-27)",
+      "Table des matières"
+    ]
+  },
+  {
+    "objectID": "an3/index.html#automne-2026-classe-se3fb",
+    "href": "an3/index.html#automne-2026-classe-se3fb",
+    "title": "Table des matières",
+    "section": "",
+    "text": "Activité du 15 octobre 2026",
+    "crumbs": [
+      "Analyse 3 (SA 26-27)",
+      "Table des matières"
+    ]
+  },
+  {
+    "objectID": "an3/index.html#automne-2025-classe-se3fb",
+    "href": "an3/index.html#automne-2025-classe-se3fb",
+    "title": "Table des matières",
+    "section": "Automne 2025, classe SE3fb",
+    "text": "Automne 2025, classe SE3fb\n\nSystème masse-ressort-amortisseur interactif\nActivité du 4 novembre 2025",
+    "crumbs": [
+      "Analyse 3 (SA 26-27)",
+      "Table des matières"
+    ]
+  },
+  {
+    "objectID": "an3/261015/index.html",
+    "href": "an3/261015/index.html",
+    "title": "Activité du jeudi 15 octobre",
+    "section": "",
+    "text": "Consignes",
+    "crumbs": [
+      "Analyse 3 (SA 26-27)",
+      "Activité du jeudi 15 octobre"
+    ]
+  },
+  {
+    "objectID": "an3/261015/index.html#consignes",
+    "href": "an3/261015/index.html#consignes",
+    "title": "Activité du jeudi 15 octobre",
+    "section": "",
+    "text": "Les zones de code ci-dessous peuvent être modifiées et relancées à l’aide du bouton “Run code” ou au clavier avec “Ctrl+Enter”.\nVous serez amené·e à faire quelques calculs. Ces passages sont en italique.\nIl faut lancer les cases de codes dans l’ordre, car certaines font appel aux cases précédentes.",
+    "crumbs": [
+      "Analyse 3 (SA 26-27)",
+      "Activité du jeudi 15 octobre"
+    ]
+  },
+  {
+    "objectID": "an3/261015/index.html#exercice",
+    "href": "an3/261015/index.html#exercice",
+    "title": "Activité du jeudi 15 octobre",
+    "section": "Exercice",
+    "text": "Exercice\nDans l’exercice 3 de la série 8 du cours de Mathématiques Appliquées 1, nous avons considéré le système suivant, où la constante du ressort est de \\(k = 4 \\mathrm{kg/s}^2\\), la masse du chariot est de \\(m = 1 \\mathrm{kg}\\), et la constante de l’amortisseur est de \\(c = 5 \\mathrm{kg/s}\\).\n\n\n\nChariot\n\n\nOn en déduit l’équation différentielle \\[\ny'' + 5y' + 4y = 5x'\n\\]\nPour rappel, la réponse fréquentielle du système ci-dessus est donnée par \\[\nH(\\omega) = \\frac{i5\\omega}{4-\\omega^2 + i5\\omega}\n\\] (Chaque dérivée est remplacée par un multiplication par \\(i\\omega\\) et on a le membre de droite au numérateur et le membre de gauche au dénominateur.)\nPour commencer, représentons le module et l’argument de \\(H(\\omega)\\) en fonction de la vitesse angulaire \\(\\omega\\):\n\n\n\n\n\n\n\nPour le moment, nous n’avons pas spécifié la forme du signal d’entrée \\(x(t)\\). Pour rappel, ce signal d’entrée donne la position du point point d’attache mobile, à droite du chariot dans le système considéré ici.\nDans ce premier exemple, nous allons prendre le signal d’entrée \\[\nx(t) = \\sin(3t)\n\\]\n\n\n\n\n\n\nAfin de calculer le signal de sortie \\(y(t)\\) (donc la position du chariot), nous allons utiliser la réponse fréquentielle \\(H(\\omega)\\). Pour cela nous avons besoin de la série de Fourier complexe de \\(x(t)\\), \\[\nx(t) = \\sin(3t) = -\\frac{1}{2i}e^{-i3t} + \\frac{1}{2i}e^{i3t}\n\\]\nComme nous l’avons vu, on trouve le signal de sortie en appliquant la réponse fréquentielle à chaque harmonique de la série de Fourier, avec la fréquence associée. Ainsi, pour le terme \\(e^{-i3t}\\), nous devons calculer \\(H(-3)\\), et pour le terme \\(e^{i3t}\\), nous devons calculer \\(H(3)\\).\n\nVérifiez que \\[\nH(-3) = \\frac{9+3i}{10}\n\\]\n\\[\nH(3) = \\frac{9-3i}{10}\n\\]\n\nAinsi, la série de Fourier complexe du signal de sortie est \\[\ny(t) = -\\frac{1}{2i}\\cdot\\frac{9+3i}{10}e^{-i3t} + \\frac{1}{2i}\\cdot\\frac{9-3i}{10}e^{i3t} = \\frac{-3+9i}{20}e^{-i3t} + \\frac{-3-9i}e^{i3t}\n\\]\nSans avoir besoin de simplifier cette expression, on peut se faire une idée de la trajectoire du chariot en la calculant numériquement :\n\n\n\n\n\n\n\nDans le code ci-dessous, en modifiant la vitesse angulaire du signal d’entrée (w à la première ligne), vous pouvez voir directement l’effet sur le signal de sortie \\(y(t)\\) dans la figure.\nQu’observez-vous lorsque la vitesse angulaire devient très basse (mais non-nulle) ? Et lorsqu’elle est très élevée ?\n\n\n\n\n\n\n\n\nConsidérons maintenant un signal d’entrée \\(x(t)\\) (donc l’excitation du chariot) tel que :\n\n\\(x(t) = 2t - \\frac{\\pi}{2}\\) pour \\(0\\leq x\\leq \\pi/2\\)\n\\(x(t)\\) est pair\n\\(x(t)\\) est \\(\\pi\\)-périodique\n\n\nEsquissez le graphe de \\(x(t)\\).\nVérifiez que les coefficients de Fourier complexes sont données par \\[\nc_k = \\left\\{\\begin{array}{ll}\n  -\\frac{2}{\\pi k^2} & k \\text{ impair} \\\\\n  0 & k \\text{ pair}\n\\end{array}\\right.\n\\]\n\nAinsi \\[\nx(t) = \\dots -\\frac{2}{9\\pi}e^{-i6t} - \\frac{2}{\\pi}e^{-i2t} - \\frac{2}{\\pi}e^{i2t} - \\frac{2}{9\\pi}e^{i6t} - \\dots\n\\] et on peut calculer la série de Fourier du signal de sortie (donc de la position du chariot) en appliquant la réponse fréquentielle à chaque harmonique \\[\ny(t) = \\dots -\\frac{2}{9\\pi}H(-3)e^{-i6t} - \\frac{2}{\\pi}H(-1)e^{-i2t} - \\frac{2}{\\pi}H(1)e^{i2t} - \\frac{2}{9\\pi}H(3)e^{i6t} - \\dots\n\\]\nDans le code ci-dessous, on représente le résultat des 9 premières harmoniques de \\(x(t)\\) et \\(y(t)\\).",
+    "crumbs": [
+      "Analyse 3 (SA 26-27)",
+      "Activité du jeudi 15 octobre"
+    ]
+  },
+  {
     "objectID": "mtha1/index.html",
     "href": "mtha1/index.html",
     "title": "Table des matières",
     "section": "",
     "text": "Printemps 2026, classe S2fb\nLes pages qui suivent regroupe les activités en ligne du cours de Mathématiques Appliquées 1.",
     "crumbs": [
-      "Mathématiques Appliquées 1",
+      "Mathématiques Appliquées 1 (SP 25-26)",
       "Table des matières"
     ]
   },
@@ -47,7 +113,7 @@
     "section": "",
     "text": "Activité du 30 avril 2026",
     "crumbs": [
-      "Mathématiques Appliquées 1",
+      "Mathématiques Appliquées 1 (SP 25-26)",
       "Table des matières"
     ]
   },
@@ -58,7 +124,7 @@
     "section": "",
     "text": "Rappel sur la notion de dérivée\nCette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.\nDans cette activité, au lieu de résoudre analytiquement une équation différentielle, nous allons en calculer une solution particulière numériquement (par ordinateur). Cette méthode a l’avantage de fonctionner même lorsque l’équation différentielle est trop compliquée pour être résolue avec “papier et crayon”, mais a l’incovénient de ne donner qu’un approximation de la solution.\nConsidérons l’équation différentielle de l’exercice 2 de la série 5 : \\[\ny' = -xy^2\n\\]\nNous avons vu en Analyse 2 que la dérivée d’une fonction \\(y(x)\\) (en rouge dans la figure) en un point \\(x_0\\) donne la pente de la droite tangente à \\(y(x)\\) au point \\((x_0,y(x_0))\\) (en bleu dans la figure). Etant donné un point de départ \\((x_0,y_0)\\) pour notre fonction, la dérivée va nous informer sur la direction dans laquelle la fonction va évoluer.",
     "crumbs": [
-      "Mathématiques Appliquées 1",
+      "Mathématiques Appliquées 1 (SP 25-26)",
       "Résolution numérique d'une équation différentielle"
     ]
   },
@@ -69,7 +135,7 @@
     "section": "",
     "text": "Tangente à une courbe",
     "crumbs": [
-      "Mathématiques Appliquées 1",
+      "Mathématiques Appliquées 1 (SP 25-26)",
       "Résolution numérique d'une équation différentielle"
     ]
   },
@@ -80,7 +146,7 @@
     "section": "Marche à suivre",
     "text": "Marche à suivre\nAfin de suivre la fonction définie par l’équation différentielle ci-dessus, nous allons nous placer à un point donnée (nos conditions initales) et faire de petit pas en suivant la direction indiquée par la dérivée.\nCommençons au point \\((x_0,y_0) = (1,1)\\). A ce point-là, on peut calculer la dérivée de la fonction \\(y(x)\\) à la main ou à la calculatrice, grâce à l’équation différentielle. En effet, on connaît les coordonnées \\(x\\) et \\(y\\) qui vont dans le membre de droite de l’équation, on peut donc calculer ce que vaut \\(y'\\) à ce point-là : \\[\ny' = -xy^2 = -1\\cdot 1^2 = -1\n\\]\nDonc si on se déplace d’une petit distance \\(\\delta_x = 0.1\\) le long de l’axe des \\(x\\), conformément à la figure ci-dessus, on doit se déplacer d’une distance \\(y'\\cdot\\delta_x = -1\\cdot 0.1 = -0.1\\) le long de l’axe des \\(y\\). Cela nous amène au point \\((x_1,y_1) = (1.1,0.9)\\).\nA ce point-là, on peut à nouveau calculer la dérivée \\(y'\\) grâce à l’équation différentielle.\n\n\n\n\n\n\nA nouveau, un petit déplacement de \\(\\delta_x=0.1\\) le long de l’axe des \\(x\\) induit un petit déplacement de \\(y'\\cdot\\delta_x = -0.891\\cdot 0.1 = -0.0891\\). On obtient ainsi un troisième point \\((x_2,y_2) = (1.2,0.8109)\\).\n\n\n\n\n\n\nVous pouvez répéter cette procédure pour calculer plus de points de la solution les uns après les autres : - Changez les valeurs de \\(x\\) et \\(y\\) dans la première cellule de code ci-dessus afin de calculer les valeurs suivantes. - Introduisez les valeurs obtenues pour x_new et y_new à la suite des vecteurs x_tot et y_tot dans la deuxième cellule de code afin de compléter la graphe de la fonction \\(y(x)\\).",
     "crumbs": [
-      "Mathématiques Appliquées 1",
+      "Mathématiques Appliquées 1 (SP 25-26)",
       "Résolution numérique d'une équation différentielle"
     ]
   },
@@ -91,30 +157,8 @@
     "section": "Pour aller plus loin",
     "text": "Pour aller plus loin\nLa méthode ci-dessus est fastidieuse à appliquer à la main, nous allons essayer de l’automatiser. Dans le code ci-dessous, complétez les parties avec ....\n\n\n\n\n\n\nUne fois que le code ci-dessus fonctionne, vous pouvez modifier les conditions initiales, la valeur de delta_x, le nombre d’itérations.",
     "crumbs": [
-      "Mathématiques Appliquées 1",
+      "Mathématiques Appliquées 1 (SP 25-26)",
       "Résolution numérique d'une équation différentielle"
-    ]
-  },
-  {
-    "objectID": "an3/index.html",
-    "href": "an3/index.html",
-    "title": "Table des matières",
-    "section": "",
-    "text": "Automne 2025, classe SE3fb\nLes pages qui suivent regroupe les activités en ligne du cours d’Analyse 3.",
-    "crumbs": [
-      "Analyse 3",
-      "Table des matières"
-    ]
-  },
-  {
-    "objectID": "an3/index.html#automne-2025-classe-se3fb",
-    "href": "an3/index.html#automne-2025-classe-se3fb",
-    "title": "Table des matières",
-    "section": "",
-    "text": "Système masse-ressort-amortisseur interactif\nActivité du 4 novembre 2025",
-    "crumbs": [
-      "Analyse 3",
-      "Table des matières"
     ]
   },
   {
@@ -124,7 +168,7 @@
     "section": "",
     "text": "Marche a suivre\nLe code ci-dessous permet de calculer les paramètre à entrer dans ce calculateur Demsos. Les système est composé (de gauche à droite) d’un point fixe, d’un amortisseur (de constante \\(d\\)), d’un masse (\\(m=1\\), position \\(y(t)\\)), d’un ressort (de constante \\(k\\)) et d’un point mobile qui suit un horaire sinusoïdal (\\(x(t) = \\sin(\\omega t)\\)).\nDans le champ de code ci-dessous, entrer les constantes d’amortissement \\(d\\) et du ressort \\(k\\), ainsi que la vitesse angulaire de l’excitation \\(\\omega\\). En sortie, le code affiche les quatre constantes \\(A\\), \\(B\\), \\(C\\) et \\(D\\) à renseigner au calculateur Desmos, ainsi que:\nDans le calculateur Desmos :",
     "crumbs": [
-      "Analyse 3",
+      "Analyse 3 (SA 25-26)",
       "Système masse-ressort-amortisseur interactif (Desmos)"
     ]
   },
@@ -135,7 +179,7 @@
     "section": "",
     "text": "les deux pôles (\\(s_1\\) et \\(s_2\\)) de la fonction de transfert si ceux-ci sont réels ;\nles parties réelle (\\(\\alpha\\)) et imaginaire (\\(\\beta\\)) des pôles de la fonction de transfert si ceux-ci son conjugué complexes.\n\n\n\nRenseigner les paramètres \\(A\\), \\(B\\), \\(C\\) et \\(D\\) dans les champs correspondants ;\nRenseigner les pôles (\\(s_1\\) et \\(s_2\\)) ou leur parties réelle (\\(\\alpha\\)) et imaginaire (\\(\\beta\\)) dans les champs correspondants ;\nAdapter la définition de \\(x_t\\) :\n\nUtiliser \\(x_t = x_0 + x_R\\) si les pôles de la fonction de transfert sont réels ;\nUtiliser \\(x_t = x_0 + x_I\\) si les pôles de la fonction de transfert sont complexes ;\n\nLancer l’animation en laissant \\(t\\) évoluer.",
     "crumbs": [
-      "Analyse 3",
+      "Analyse 3 (SA 25-26)",
       "Système masse-ressort-amortisseur interactif (Desmos)"
     ]
   },
@@ -146,7 +190,7 @@
     "section": "",
     "text": "Consignes",
     "crumbs": [
-      "Analyse 3",
+      "Analyse 3 (SA 25-26)",
       "Activité du mardi 4 novembre 2025"
     ]
   },
@@ -157,7 +201,7 @@
     "section": "",
     "text": "Les zones de code ci-dessous peuvent être modifiées et relancées à l’aide du bouton “Run code” ou au clavier avec “Ctrl+Enter”.\nVous serez amené·e à faire quelques calculs. Ces passages sont en italique.\nIl faut lancer les cases de codes dans l’ordre, car certaines font appel aux cases précédentes.",
     "crumbs": [
-      "Analyse 3",
+      "Analyse 3 (SA 25-26)",
       "Activité du mardi 4 novembre 2025"
     ]
   },
@@ -168,7 +212,7 @@
     "section": "Exercice",
     "text": "Exercice\nDans l’exercice 3 de la série 21 du cours de Mathématiques Appliquées 1, nous avons considéré le système suivant, où la constante du ressort est de \\(k = 4 [\\mathrm{kg/s}^2]\\), la masse du chariot est de \\(m = 1 [\\mathrm{kg}]\\), et la constante de l’amortisseur est de \\(c = 5 [\\mathrm{kg/s}]\\).\n\n\n\nChariot\n\n\nOn en déduit l’équation différentielle \\[\ny'' + 5y' + 4y = 5x'\n\\]\nPour rappel, la réponse fréquentielle du système ci-dessus est donnée par \\[\nH(\\omega) = \\frac{i5\\omega}{4-\\omega^2 + i5\\omega}\n\\] (Chaque dérivée est remplacée par un multiplication par \\(i\\omega\\) et on a le membre de droite au numérateur et le membre de gauche au dénominateur.)\nPour commencer, représentons le module et l’argument de \\(H(\\omega)\\) en fonction de la vitesse angulaire \\(\\omega\\):\n\n\n\n\n\n\n\nPour le moment, nous n’avons pas spécifié la forme du signal d’entrée \\(x(t)\\). Pour rappel, ce signal d’entrée donne la position du point point d’attache mobile, à droite du chariot dans le système considéré ici.\nDans ce premier exemple, nous allons prendre le signal d’entrée \\[\nx(t) = \\sin(3t)\n\\]\n\n\n\n\n\n\nAfin de calculer le signal de sortie \\(y(t)\\) (donc la position du chariot), nous allons utiliser la réponse fréquentielle \\(H(\\omega)\\). Pour cela nous avons besoin de la série de Fourier complexe de \\(x(t)\\), \\[\nx(t) = \\sin(3t) = -\\frac{1}{2i}e^{-i3t} + \\frac{1}{2i}e^{i3t}\n\\]\nComme nous l’avons vu, on trouve le signal de sortie en appliquant la réponse fréquentielle à chaque harmonique de la série de Fourier, avec la fréquence associée. Ainsi, pour le terme \\(e^{-i3t}\\), nous devons calculer \\(H(-3)\\), et pour le terme \\(e^{i3t}\\), nous devons calculer \\(H(3)\\).\n\nVérifiez que \\[\nH(-3) = \\frac{9+3i}{10}\n\\]\n\\[\nH(3) = \\frac{9-3i}{10}\n\\]\n\nAinsi, la série de Fourier complexe du signal de sortie est \\[\ny(t) = -\\frac{1}{2i}\\cdot\\frac{9+3i}{10}e^{-i3t} + \\frac{1}{2i}\\cdot\\frac{9-3i}{10}e^{i3t} = \\frac{-3+9i}{20}e^{-i3t} + \\frac{-3-9i}e^{i3t}\n\\]\nSans avoir besoin de simplifier cette expression, on peut se faire une idée de la trajectoire du chariot en la calculant numériquement :\n\n\n\n\n\n\n\nDans le code ci-dessous, en modifiant la vitesse angulaire du signal d’entrée (w à la première ligne), vous pouvez voir directement l’effet sur le signal de sortie \\(y(t)\\) dans la figure.\nQu’observez-vous lorsque la vitesse angulaire devient très basse (mais non-nulle) ? Et lorsqu’elle est très élevée ?\n\n\n\n\n\n\n\n\nConsidérons maintenant un signal d’entrée \\(x(t)\\) (donc l’excitation du chariot) tel que :\n\n\\(x(t) = 2t - \\frac{\\pi}{2}\\) pour \\(0\\leq x\\leq \\pi/2\\)\n\\(x(t)\\) est pair\n\\(x(t)\\) est \\(\\pi\\)-périodique\n\n\nEsquissez le graphe de \\(x(t)\\).\nVérifiez que les coefficients de Fourier complexes sont données par \\[\nc_k = \\left\\{\\begin{array}{ll}\n  -\\frac{2}{\\pi k^2} & k \\text{ impair} \\\\\n  0 & k \\text{ pair}\n\\end{array}\\right.\n\\]\n\nAinsi \\[\nx(t) = \\dots -\\frac{2}{9\\pi}e^{-i6t} - \\frac{2}{\\pi}e^{-i2t} - \\frac{2}{\\pi}e^{i2t} - \\frac{2}{9\\pi}e^{i6t} - \\dots\n\\] et on peut calculer la série de Fourier du signal de sortie (donc de la position du chariot) en appliquant la réponse fréquentielle à chaque harmonique \\[\ny(t) = \\dots -\\frac{2}{9\\pi}H(-3)e^{-i6t} - \\frac{2}{\\pi}H(-1)e^{-i2t} - \\frac{2}{\\pi}H(1)e^{i2t} - \\frac{2}{9\\pi}H(3)e^{i6t} - \\dots\n\\]\nDans le code ci-dessous, on représente le résultat des 9 premières harmoniques de \\(x(t)\\) et \\(y(t)\\).",
     "crumbs": [
-      "Analyse 3",
+      "Analyse 3 (SA 25-26)",
       "Activité du mardi 4 novembre 2025"
     ]
   }

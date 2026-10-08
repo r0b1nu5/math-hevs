@@ -1,4 +1,4 @@
-# Système masse-ressort-amortisseur interactif (Desmos) {.unnumbered}
+# Système masse-ressort-amortisseur {.unnumbered}
 
 Le code ci-dessous permet de calculer les paramètre à entrer dans [ce calculateur Demsos](https://www.desmos.com/calculator/uzwkckigsv){target="_blank"}.
 Les système est composé (de gauche à droite) d'un point fixe, d'un amortisseur (de constante $d$), d'un masse ($m=1$, position $y(t)$), d'un ressort (de constante $k$) et d'un point mobile qui suit un horaire sinusoïdal ($x(t) = \sin(\omega t)$).

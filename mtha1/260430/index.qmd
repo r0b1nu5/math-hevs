@@ -1,4 +1,4 @@
-# Résolution numérique d'une équation différentielle {.unnumbered}
+# Résolution numérique {.unnumbered}
 
 *Cette page se veut interactive, vous pouvez coder en Python dans les cellules fournies ci-dessous.*
 

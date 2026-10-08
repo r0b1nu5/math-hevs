@@ -3,7 +3,7 @@
 Les pages qui suivent regroupe les activités en ligne du cours d'Analyse 3.
 
 ## Automne 2026, classe SE3fb
-- [Activité du 15 octobre 2026](261016/index.qmd)
+- [Activité du 15 octobre 2026](261015/index.qmd)
 
 ## Automne 2025, classe SE3fb
 - [Système masse-ressort-amortisseur interactif](260108/index.qmd)

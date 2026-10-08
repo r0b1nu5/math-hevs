@@ -10,11 +10,15 @@ book:
   title: "Mathématiques HEI"
   chapters:
     - index.qmd
-    - part: "Mathématiques Appliquées 1"
+    - part: "Analyse 3 (SA 26-27)"
+      chapters:
+        - an3/index.qmd
+        - an3/261015/index.qmd
+    - part: "Mathématiques Appliquées 1 (SP 25-26)"
       chapters:
         - mtha1/index.qmd
         - mtha1/260430/index.qmd
-    - part: "Analyse 3"
+    - part: "Analyse 3 (SA 25-26)"
       chapters:
         - an3/index.qmd
         - an3/260108/index.qmd

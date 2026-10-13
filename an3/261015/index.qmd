@@ -114,9 +114,8 @@ fig, ax = subplots(figsize=(7,3))
 ax.plot(t,x)
 ax.plot(t,y.real)
 ax.set_xlabel('t')
-ax.set_ylabel('x')
-ax.set_xlim(0,10)
-ax.set_ylim(-1.1,1.1)
+ax.set_ylabel('x, y')
+ax.axis([0,10,-1.1,1.1])
 
 plt.show()
 ```
@@ -144,13 +143,14 @@ H2 = (j*5*w)/(4-w**2 + j*5*w)
 y = (-1/(2*j))*H1*np.exp(-j*w*t) + (1/(2*j))*H2*np.exp(j*w*t)
 
 # Affichage
-plt.figure()
-plt.subplot(2,1,1)
-plt.plot(t,x)
-plt.ylabel('x'); plt.axis([0,tmax,-1.1,1.1])
-plt.subplot(2,1,2)
-plt.plot(t,y.real,color='C1')
-plt.xlabel('t'); plt.ylabel('y'); plt.axis([0,tmax,-1.1,1.1])
+fig, ax = plt.subplots(figsize=(7,3))$
+
+ax.plot(t,x)
+ax.plot(t,y.real)
+ax.set_xlabel('t')
+ax.set_ylabel('x, y')
+ax.axis([0,tmax,-1.1,1.1])
+
 plt.show()
 ```
 
@@ -214,13 +214,14 @@ def Y(k):
 y1 = Y(1); y3 = Y(3); y5 = Y(5); y7 = Y(7); y9 = Y(9); y = y1 + y3 + y5 + y7 + y9
 
 # Affichage
-plt.figure()
-plt.subplot(2,1,1)
-plt.plot(t,x.real)
-plt.axis([tmin,tmax,-2,2]); plt.ylabel('x')
-plt.subplot(2,1,2)
-plt.plot(t,y.real,color='C1')
-plt.xlabel('t'); plt.ylabel('y'); plt.axis([tmin,tmax,-2,2])
+fig, ax = plt.subplots(figsize=(7,3))
+
+ax.plot(t,x.real)
+ax.plot(t,y.real)
+ax.axis([tmin,tmax,-2,2])
+ax.set_xlabel('t')
+ax.set_ylabel('x, y')
+
 plt.show()
 ```
 

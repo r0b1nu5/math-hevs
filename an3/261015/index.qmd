@@ -36,22 +36,21 @@ w = np.linspace(0,100,500)
 H = (j*5*w)/(4 - w**2 + j*5*w)
 
 # On affiche les graphes de |H| et de arg(H).
-plt.figure('fig1',(8,4))
-plt.subplot(1,2,1)
-plt.plot(w,abs(H))
-plt.xlabel('w')
-plt.ylabel('|H|')
+fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(7,3))
+ax[0].plot(w,abs(H))
+ax[0].set_xlabel('w')
+ax[0].set_ylabel('|H|')
 
 # Calcul de l'argument de la réponse fréquentielle.
 phi = []
 for i in np.arange(len(w)):
 	phi.append(cmath.phase(H[i]))
 
-plt.subplot(1,2,2)
-plt.plot(w,phi)
-plt.xlabel('w')
-plt.ylabel('arg(H)')
+ax[1].plot(w,phi)
+ax[1].set_xlabel('w')
+ax[1].set_ylabel('arg(H)')
 
+plt.tight_layout()
 plt.show()
 ```
 
@@ -69,10 +68,12 @@ $$
 t = np.linspace(0,10,500)
 x = np.sin(3*t)
 
-plt.figure('fig2',(8,4))
-plt.plot(t,x)
-plt.xlabel('t')
-plt.ylabel('x')
+fig, ax = plt.subplots(figsize=(7,3))
+
+ax.plot(t,x)
+ax.set_xlabel('t')
+ax.set_ylabel('x')
+
 plt.show()
 ```
 
@@ -108,13 +109,15 @@ Sans avoir besoin de simplifier cette expression, on peut se faire une idée de 
 ```{pyodide}
 y = complex(-3/20,9/20)*np.exp(-j*3*t) + complex(-3/20,-9/20)*np.exp(j*3*t)
 
-plt.figure()
-plt.subplot(2,1,1)
-plt.plot(t,x)
-plt.ylabel('x'); plt.axis([0,10,-1.1,1.1])
-plt.subplot(2,1,2)
-plt.plot(t,y.real,color='C1')
-plt.xlabel('t'); plt.ylabel('y'); plt.axis([0,10,-1.1,1.1])
+fig, ax = subplots(figsize=(7,3))
+
+ax.plot(t,x)
+ax.plot(t,y.real)
+ax.set_xlabel('t')
+ax.set_ylabel('x')
+ax.set_xlim(0,10)
+ax.set_ylim(-1.1,1.1)
+
 plt.show()
 ```
 
